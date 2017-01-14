@@ -1,5 +1,5 @@
 import React , { Component } from 'react'
-export default class MainWrapper extends Component{
+export default class Footer extends Component{
   render(){
     return(
       <div className="footer-wrapper">
