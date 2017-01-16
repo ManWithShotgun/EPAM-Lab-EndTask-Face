@@ -48,7 +48,12 @@ const common = {
       test: /\.js$/,
       loaders: ['babel-loader'],
       exclude: /node_modules/,
-    }, {
+    },
+    {
+      test: /\.css$/,
+      loader: 'style-loader!css-loader'
+    },
+    {
       test: /\.png$/,
       loader: 'file?name=[name].[ext]',
     }, {

@@ -12,21 +12,21 @@ const initialState = {
       pricePer: 20,
       name: 'dasda',
       img:'weqewq',
-      discription: 'bla-bla'
+      description: 'bla-bla'
     },
     {
       id:321,
       pricePer: 40,
       name: 'dasda33',
       img:'weqewq',
-      discription: 'bla-bla-bla'
+      description: 'bla-bla-bla'
     },
     {
       id:444,
       pricePer: 40,
       name: 'dasda44',
       img:'weqewq',
-      discription: 'bla-bla-bla'
+      description: 'bla-bla-bla'
     }
   ]
 }

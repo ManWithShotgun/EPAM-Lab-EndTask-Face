@@ -1,15 +1,13 @@
 .login-wrapper{
+  margin: 5px auto;
+  width: 300px;
   font-family: 'Open Sans', Tahoma, sans-serif;
-  background: #fff url(../img/header-shadow.png) repeat-x top;
 }
 .login-div{
-  /*height: 200px;*/
   display: inline-block;
   background: #fff url(../img/header-shadow.png) repeat-x top;
   border: 1px solid #dbd6d6;
   border-radius: 2px;
-  /*width: 158px;*/
-  margin: 0 5px 5px 0;
   padding: 0;
 }
 .login-wrapper h3{
@@ -62,6 +60,7 @@
 }
 .btn{
   text-align: center;
+  background-color: black;
 }
 .form-row input[type="submit"]:hover{
   color: #4e758c;
@@ -80,4 +79,8 @@
 .form-row a:hover{
   color: #4e758c;
   background-color: #dedede;
+}
+/*/////////////////////////////////////////////////////////*/
+.btn--loading{
+  display: inline-block;
 }

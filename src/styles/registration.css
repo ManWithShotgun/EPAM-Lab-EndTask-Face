@@ -1,6 +1,7 @@
 .registration-wrapper{
+  margin: 5px auto;
+  width: 700px;
   font-family: 'Open Sans', Tahoma, sans-serif;
-  background: #fff url(../img/header-shadow.png) repeat-x top;
 }
 .registration-wrapper h3{
   background: #f3f3f3 url(../img/fade.png) repeat-x top left;

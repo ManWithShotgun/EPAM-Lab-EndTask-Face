@@ -11,7 +11,7 @@ export default class Product extends Component{
   render(){
     const {item}=this.props;
     return(
-      <div className="product-grid">
+      <div className={this.props.classNameProduct}>
         <h3>
           <a href="#">{item.name}</a>
         </h3>
@@ -19,6 +19,9 @@ export default class Product extends Component{
           <div className="prod-img">
             <img src="../src/img/Nasa-Orion-Nebula-By-RePublicDomain.jpg" alt=""/>
             <span className="prod-price">${item.pricePer}</span>
+          </div>
+          <div className="description">
+            {item.description}
           </div>
           <a className="add-product" onClick={::this.addInBascket} href="#">ADD TO CAR</a>
           <a className="info-product" href="#">MORE INFO</a>

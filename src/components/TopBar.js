@@ -1,28 +1,47 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router';
 export default class TopBar extends Component {
 
   render() {
+    const navButtons = this.props.loggedIn ? (
+      <div className="left">
+        <ul>
+          <li>
+            <Link to="/home">Home</Link>
+          </li>
+          <li>
+            <Link to="/category">Category</Link>
+          </li>
+          <li>
+            <Link to="/registration">Registration</Link>
+          </li>
+          <li>
+            <Link to="/profile">Profile</Link>
+          </li>
+        </ul>
+      </div>
+    ):(
+      <div className="left">
+        <ul>
+          <li>
+            <Link to="/home">Home</Link>
+          </li>
+          <li>
+            <Link to="/category">Category</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/registration">Registration</Link>
+          </li>
+        </ul>
+      </div>
+    );
+
     return (
       <div className="top-bar">
-        <div className="left">
-          <ul>
-            <li>
-              <a href="index.html">Home</a>
-            </li>
-            <li>
-              <a href="index.html">Category</a>
-            </li>
-            <li>
-              <a href="index.html">Login</a>
-            </li>
-            <li>
-              <a href="index.html">Registration</a>
-            </li>
-            <li>
-              <a href="index.html">Profile</a>
-            </li>
-          </ul>
-        </div>
+        {navButtons}
         <div className="right">
           <div className="div-top-form">
             <form className="top-form" action="index.html" method="post">

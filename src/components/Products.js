@@ -5,10 +5,9 @@ export default class Products extends Component{
   render(){
     const products=this.props.items.map((item)=>{
       return(
-        <Product key={item.id} item={item} addInBascket={this.props.addInBascket} />
+        <Product key={item.id} item={item} addInBascket={this.props.addInBascket} classNameProduct={this.props.classNameProduct} />
       )
-    })
-    /*пробросить добавление в корзину*/
+    });
     return(
       <div className="products">
         {products}

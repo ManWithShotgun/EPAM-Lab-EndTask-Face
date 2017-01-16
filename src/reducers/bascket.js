@@ -6,26 +6,9 @@ import {
 
 
 const initialState = {
-  price: 100,
-  count: 5,
-  items:[
-    {
-      id:123,
-      price: 60,
-      pricePer: 20,
-      count:3,
-      name: 'dasda',
-      img:'weqewq'
-    },
-    {
-      id:321,
-      price: 40,
-      pricePer: 20,
-      count:2,
-      name: '32113',
-      img:'444312132'
-    }
-  ]
+  price: 0,
+  count: 0,
+  items:[]
 }
 export default function bascket(state = initialState, action) {
 
