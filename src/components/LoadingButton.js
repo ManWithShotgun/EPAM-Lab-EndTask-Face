@@ -1,16 +1,12 @@
-/**
- * LoadingButton.react.js
- *
- * Wraps the loading indicator in a tag with the .btn--loading class
- */
-
 import React from 'react';
-import LoadingIndicator from './LoadingIndicator';
+import '../styles/loading-indicator.css'
 
 function LoadingButton() {
   return(
-    <a href="#" className="btn--loading" disabled="true">
-      <LoadingIndicator />
+    <a href="#" disabled="true">
+      <div>Loading
+        <div className="loading-div"></div>
+      </div>
     </a>
   )
 }

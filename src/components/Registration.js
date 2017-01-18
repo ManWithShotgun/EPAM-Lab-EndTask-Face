@@ -1,68 +1,101 @@
 import React, { Component } from 'react'
+// import { Link } from 'react-router';
+import LoadingButton from './LoadingButton';
+import { connect } from 'react-redux';
+import { register } from '../actions/AccountAuthAction';
+import ReactDOM from 'react-dom'
 import '../styles/registration.css'
-export default class Registration extends Component{
+import '../styles/formErr.css'
+export class Registration extends Component{
+
+  onSubmit(e){
+    e.preventDefault();
+    let name = ReactDOM.findDOMNode(this.refs.login).value;
+    let password = ReactDOM.findDOMNode(this.refs.pass).value;
+    this.props.dispatch(register(name, password));
+  }
+
   render() {
     return(
       <div className="registration-wrapper">
-    <div className="registration-div">
-      <h3>Registration</h3>
-      <div className="form-wrapper">
-        <form action="https://google.com" method="post">
-      <div className="form-inputs">
-        <div >
-          <table>
-            <tbody>
-            <tr>
-              <td>
-                <label htmlFor="first-name">First Name*</label>
-              </td>
-              <td>
-                <input type="text" name="first-name" id="first-name" minLength="3" maxLength="16" required placeholder="Name1"/>
-              </td>
-              <td>
-                <label htmlFor="last-name">Last Name*</label>
-              </td>
-              <td>
-                <input type="text" name="last-name" id="last-name" minLength="3" maxLength="16" required placeholder="Name2"/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label htmlFor="address">Address*</label>
-              </td>
-              <td>
-                <input type="text" name="address" id="address" required placeholder="Lorem ipsum dolor sit."/>
-              </td>
-              <td>
-                <label htmlFor="email">Email*</label>
-              </td>
-              <td>
-                <input type="text" name="email" id="email" required placeholder="any@email.com"/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label htmlFor="pass">Password*</label>
-              </td>
-              <td>
-                <input type="password" name="pass" id="pass" required placeholder="Password"/>
-              </td>
-              <td>
-                <label htmlFor="confirm-pass">Confirm Password*</label>
-              </td>
-              <td>
-                <input type="password" name="confirm-pass" id="confirm-pass" required placeholder="Password"/>
-              </td>
-            </tr>
-          </tbody>
-          </table>
-          <input type="submit" name="" value="Registration"/>
+        <div className="registration-div">
+          <h3>Registration</h3>
+          <div className="form-wrapper">
+            <form method="post" onSubmit={::this.onSubmit}>
+              <div className="form__error-wrapper">
+                <p className="form__error form__error--username-taken">Sorry, but this Login is already taken.</p>
+                <p className="form__error form__error--username-not-registered">This Login does not exist.</p>
+                <p className="form__error form__error--wrong-password">Wrong password.</p>
+                <p className="form__error form__error--field-missing">Please fill out the entire form.</p>
+                <p className="form__error form__error--failed">Something went wrong, please try again!</p>
+              </div>
+              <div className="form-inputs">
+                <div>
+                  <table>
+                    <tbody>
+                    <tr>
+                      <td>
+                        <label htmlFor="first-name">Login*</label>
+                      </td>
+                      <td>
+                        <input type="text" ref="login" id="login" minLength="3" maxLength="16" required placeholder="Name1"/>
+                      </td>
+                      <td>
+                        <label htmlFor="last-name">Name*</label>
+                      </td>
+                      <td>
+                        <input type="text" ref="name" id="name" minLength="3" maxLength="16" required placeholder="Name2"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label htmlFor="address">Address*</label>
+                      </td>
+                      <td>
+                        <input type="text" ref="address" id="address" required placeholder="Lorem ipsum dolor sit."/>
+                      </td>
+                      <td>
+                        <label htmlFor="email">Email*</label>
+                      </td>
+                      <td>
+                        <input type="text" ref="email" id="email" required placeholder="any@email.com"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label htmlFor="pass">Password*</label>
+                      </td>
+                      <td>
+                        <input type="password" ref="pass" id="pass" required placeholder="Password"/>
+                      </td>
+                      <td>
+                        <label htmlFor="confirm-pass">Confirm Password*</label>
+                      </td>
+                      <td>
+                        <input type="password" ref="confirm-pass" id="confirm-pass" required placeholder="Password"/>
+                      </td>
+                    </tr>
+                  </tbody>
+                  </table>
+                    {this.props.accountAuth.currentlySending ? (
+                      <LoadingButton />
+                    ):(
+                      <input type="submit" name="" value="Registration"/>
+                    )}
+                </div>
+              </div>
+            </form>
         </div>
       </div>
-    </form>
-  </div>
-  </div>
-  </div>
+    </div>
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    accountAuth: state.accountAuth
+  };
+}
+
+export default connect(mapStateToProps)(Registration);

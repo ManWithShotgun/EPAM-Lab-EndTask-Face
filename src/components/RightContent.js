@@ -1,4 +1,6 @@
 import React , { Component } from 'react'
+import { Link } from 'react-router';
+
 export default class RightContent extends Component{
   render(){
     return(
@@ -8,29 +10,13 @@ export default class RightContent extends Component{
           <div className="wrapper-ul">
             <ul>
               <li>
-                <a href="#">Camepa</a><span> (2)</span>
+                <Link to="#">Camepa</Link><span> (2)</span>
               </li>
               <li>
-                <a href="#">Computers</a><span> (3)</span>
+                <Link to="#">Computers</Link><span> (3)</span>
               </li>
               <li>
-                <a href="#">Electronic</a><span> (1)</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="category-div">
-          <div className="title">Product Category</div>
-          <div className="wrapper-ul">
-            <ul>
-              <li>
-                <a href="#">Camepa</a><span> (2)</span>
-              </li>
-              <li>
-                <a href="#">Computers</a><span> (3)</span>
-              </li>
-              <li>
-                <a href="#">Electronic</a><span> (1)</span>
+                <Link to="#">Electronic</Link><span> (1)</span>
               </li>
             </ul>
           </div>

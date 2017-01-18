@@ -1,0 +1,48 @@
+.form__error-wrapper {
+  /*display: none;*/
+  position: relative;
+  max-width: calc(100% - 2em);
+  margin: 0 auto;
+  /*margin-bottom: 1em;*/
+  text-align: center;
+}
+
+.form__error {
+  display: none;
+  background-color: #FB4F4F;
+  color: white;
+  margin: 0;
+  padding: 0.5em 1em;
+  font-size: 1em;
+}
+
+.js-form__err-animation {
+  animation: shake 150ms ease-in-out;
+}
+
+.js-form__err .form__error-wrapper {
+  display: flex;
+}
+
+.js-form__err--user-doesnt-exist .form__error--username-not-registered,
+.js-form__err--username-exists .form__error--username-taken,
+.js-form__err--password-wrong .form__error--wrong-password,
+.js-form__err--field-missing .form__error--field-missing {
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

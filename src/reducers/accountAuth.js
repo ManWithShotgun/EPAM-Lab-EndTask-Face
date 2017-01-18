@@ -1,5 +1,5 @@
 import { CHANGE_FORM, SET_AUTH, SENDING_REQUEST } from '../constants/AccountAuth';
-// import auth from '../utils/auth';
+import auth from '../utils/auth';
 
 const initialState = {
   formState: {
@@ -7,7 +7,7 @@ const initialState = {
     password: ''
   },
   currentlySending: false,
-  loggedIn: false
+  loggedIn: auth.loggedIn()
 };
 
 export default function accountAuth(state = initialState, action) {

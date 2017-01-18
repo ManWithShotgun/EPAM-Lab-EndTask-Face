@@ -41,5 +41,4 @@ export default function products(state = initialState) {
   //     return {...state, items:[]};
   //   default:
       return state;
-  // }
 }

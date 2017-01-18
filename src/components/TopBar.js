@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router';
+import LoadingButton from './LoadingButton';
+import { logout } from '../actions/AccountAuthAction';
 export default class TopBar extends Component {
+
+  logoutAccount() {
+    this.props.dispatch(logout());
+  }
 
   render() {
     const navButtons = this.props.loggedIn ? (
@@ -13,10 +19,14 @@ export default class TopBar extends Component {
             <Link to="/category">Category</Link>
           </li>
           <li>
-            <Link to="/registration">Registration</Link>
+            <Link to="/profile">Profile</Link>
           </li>
           <li>
-            <Link to="/profile">Profile</Link>
+            {this.props.currentlySending ? (
+            <LoadingButton />
+          ) : (
+            <a href="#" className="btn btn--login btn--nav" onClick={::this.logoutAccount}>Logout</a>
+          )}
           </li>
         </ul>
       </div>

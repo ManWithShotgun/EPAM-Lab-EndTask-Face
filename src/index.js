@@ -12,6 +12,8 @@ import Login from './components/Login'
 import Registration from './components/Registration'
 import Profile from './components/Profile'
 import NotFound from './components/NotFound'
+import Home from './components/Home'
+import ProductById from './components/ProductById'
 
 
 import './styles/style.css'
@@ -47,12 +49,14 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route component={App}>
-        <Route path="/" component={MainContainer} />
+        <Route path="/" component={Home} />
         <Route onEnter={checkAuth}>
-          <Route path="/login" component={Login} />
-          <Route path="/registration" component={Registration} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/home" component={MainContainer} />
+          <Route path="login" component={Login} />
+          <Route path="registration" component={Registration} />
+          <Route path="profile" component={Profile} />
+          <Route path="home" component={Home} />
+          <Route path="products" component={MainContainer} />
+          <Route path="product/:id" component={ProductById} />
         </Route>
         <Route path="*" component={NotFound} />
       </Route>

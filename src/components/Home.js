@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-export default class NotFound extends Component {
+export default class Home extends Component {
   render() {
     return(
       <article>
-        <h1>Page not found.</h1>
+        <h1>It is home page.</h1>
         <Link to="/" className="btn">Home</Link>
       </article>
     );

@@ -1,10 +1,12 @@
 .profile-wrapper{
+  margin: 5px auto;
+  width: 500px;
   font-family: 'Open Sans', Tahoma, sans-serif;
   background: #fff url(../img/header-shadow.png) repeat-x top;
 }
 .profile-div{
   display: inline-block;
-  width: 500px;
+  /*width: 500px;*/
   background: #fff url(../img/header-shadow.png) repeat-x top;
   border: 1px solid #dbd6d6;
   border-radius: 2px;

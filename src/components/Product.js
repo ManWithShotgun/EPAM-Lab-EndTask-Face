@@ -1,4 +1,5 @@
 import React , { Component } from 'react'
+import { Link } from 'react-router';
 
 export default class Product extends Component{
 
@@ -10,6 +11,7 @@ export default class Product extends Component{
 
   render(){
     const {item}=this.props;
+    let url='/product/'+item.id;
     return(
       <div className={this.props.classNameProduct}>
         <h3>
@@ -23,8 +25,8 @@ export default class Product extends Component{
           <div className="description">
             {item.description}
           </div>
-          <a className="add-product" onClick={::this.addInBascket} href="#">ADD TO CAR</a>
-          <a className="info-product" href="#">MORE INFO</a>
+          <Link className="add-product" onClick={::this.addInBascket} href="#">ADD TO CAR</Link>
+          <Link className="info-product" to={url}>MORE INFO</Link>
         </div>
       </div>
     )

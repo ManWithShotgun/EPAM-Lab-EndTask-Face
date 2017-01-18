@@ -36,7 +36,7 @@
   display: block;*/
   font-weight: 700;
 }
-.form-row input[type="text"]{
+.form-row input[type="text"], .form-row input[type="password"]{
   border: 1px solid #dbd6d6;
   border-radius: 3px;
   height: 23px;
@@ -60,13 +60,13 @@
 }
 .btn{
   text-align: center;
-  background-color: black;
 }
 .form-row input[type="submit"]:hover{
   color: #4e758c;
   background-color: #dedede;
 }
 .form-row a{
+  display: inline-block;
   text-decoration: none;
   color: #4781a4;
   border: 1px solid #dbd6d6;
@@ -79,8 +79,4 @@
 .form-row a:hover{
   color: #4e758c;
   background-color: #dedede;
-}
-/*/////////////////////////////////////////////////////////*/
-.btn--loading{
-  display: inline-block;
 }
