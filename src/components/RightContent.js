@@ -10,13 +10,10 @@ export default class RightContent extends Component{
           <div className="wrapper-ul">
             <ul>
               <li>
-                <Link to="#">Camepa</Link><span> (2)</span>
+                <Link to="/monitors">Monitors</Link><span> (?)</span>
               </li>
               <li>
-                <Link to="#">Computers</Link><span> (3)</span>
-              </li>
-              <li>
-                <Link to="#">Electronic</Link><span> (1)</span>
+                <Link to="/cameras">Cameras</Link><span> (?)</span>
               </li>
             </ul>
           </div>

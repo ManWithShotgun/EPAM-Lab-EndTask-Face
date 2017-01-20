@@ -16,16 +16,13 @@ export default class TopBar extends Component {
             <Link to="/home">Home</Link>
           </li>
           <li>
-            <Link to="/category">Category</Link>
-          </li>
-          <li>
             <Link to="/profile">Profile</Link>
           </li>
           <li>
             {this.props.currentlySending ? (
             <LoadingButton />
           ) : (
-            <a href="#" className="btn btn--login btn--nav" onClick={::this.logoutAccount}>Logout</a>
+            <Link href="#" className="btn btn--login btn--nav" onClick={::this.logoutAccount}>Logout</Link>
           )}
           </li>
         </ul>
@@ -35,9 +32,6 @@ export default class TopBar extends Component {
         <ul>
           <li>
             <Link to="/home">Home</Link>
-          </li>
-          <li>
-            <Link to="/category">Category</Link>
           </li>
           <li>
             <Link to="/login">Login</Link>

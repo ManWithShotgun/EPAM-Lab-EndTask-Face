@@ -11,7 +11,6 @@ export default class Product extends Component{
 
   render(){
     const {item}=this.props;
-    let url='/product/'+item.id;
     return(
       <div className={this.props.classNameProduct}>
         <h3>
@@ -19,14 +18,14 @@ export default class Product extends Component{
         </h3>
         <div className="body">
           <div className="prod-img">
-            <img src="../src/img/Nasa-Orion-Nebula-By-RePublicDomain.jpg" alt=""/>
+            <img src="dist/public/Nasa-Orion-Nebula-By-RePublicDomain.jpg" alt=""/>
             <span className="prod-price">${item.pricePer}</span>
           </div>
           <div className="description">
             {item.description}
           </div>
           <Link className="add-product" onClick={::this.addInBascket} href="#">ADD TO CAR</Link>
-          <Link className="info-product" to={url}>MORE INFO</Link>
+          <Link className="info-product" to={`/product/${item.id}`}>MORE INFO</Link>
         </div>
       </div>
     )

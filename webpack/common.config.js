@@ -54,14 +54,8 @@ const common = {
       loader: 'style-loader!css-loader'
     },
     {
-      test: /\.png$/,
-      loader: 'file?name=[name].[ext]',
-    }, {
-      test: /\.jpg$/,
-      loader: 'file?name=[name].[ext]',
-    }, {
-      test: /\.gif$/,
-      loader: 'file?name=[name].[ext]',
+      test: /\.png$|\.jpg$|\.gif$/,
+      loader: 'file?name=public/[name].[ext]',
     }],
   },
 };

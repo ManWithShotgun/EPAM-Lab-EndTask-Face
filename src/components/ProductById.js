@@ -59,10 +59,16 @@ export class ProductById extends Component {
   }
 }
 
+function mapStateToProps (state) {
+  return {
+    products: state.products
+  }
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     bascketActions: bindActionCreators(addInBascket, dispatch)
   }
 }
 
-export default connect(mapDispatchToProps)(ProductById);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductById);

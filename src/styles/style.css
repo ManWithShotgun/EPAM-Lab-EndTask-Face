@@ -44,7 +44,7 @@ body{
   padding: 0 3px 3px 3px;
   color: #636161;
 }
-ul {
+.left ul {
   list-style-type: none;
   position: relative;
   margin: 0;
@@ -52,7 +52,7 @@ ul {
   padding-top: 6px;
   padding-left: 20px;
 }
-li {
+.left li {
   position: relative;
   display: inline;
   float: left;
@@ -60,13 +60,13 @@ li {
   margin-top: 2px;
   padding:0 2px 0 4px;
 }
-li a:before{
+.left li a:before{
   content: url(../img/top-menu-sep.gif);
   position: absolute; top: 50%; left: 0;
   height: 16px;
   margin-top: -9px;
 }
-ul > li:first-child a:before{
+.left ul > li:first-child a:before{
   content: '';
 }
 .top-bar>.right{
@@ -172,13 +172,58 @@ ul > li:first-child a:before{
 .menu-ul{
   float: left;
   /*list-style: none;*/
+  margin: 0;
+  padding-top: 6px;
+  padding-left: 20px;
 }
-.menu-ul il{
+/*.menu-ul ul{
+  margin: 0;
+  padding-top: 6px;
+  padding-left: 20px;
+}*/
+.menu-ul li{
+  display: inline;
+  padding: 0 2px 0 4px;
   position: relative;
   top:-3px;
   background: url(../img/menu-separator.png) no-repeat scroll right center transparent;
   float: left;
 }
+/*===========Sub menu===============*/
+ul.menu-ul ul
+{
+	display:none;
+	position:absolute;
+	top:100%;
+	left:0;
+  background-color: #de360f;
+	padding:0
+}
+
+ul.menu-ul ul li
+{
+	/*float:none;*/
+  /*background-color: blue;*/
+	width:144px
+}
+
+ul.menu-ul ul a
+{
+	/*line-height:120%;*/
+	padding:10px 15px
+}
+
+ul.menu-ul ul ul
+{
+	top:0;
+	left:100%
+}
+
+ul.menu-ul li:hover > ul
+{
+	display:block
+}
+/*===========End Sub menu===============*/
 .menu-ul a{
   display: inline-block;
   font-size: 13px;
@@ -405,4 +450,9 @@ a.bag-empty:hover, a.bag-checkout:hover{
   }
   .menu-two-div{display: none;}
   .footer-right{display: none;}
+}
+
+.forloadimg{
+  background-image: url(../img/logo.png);
+  background-image: url(../img/Nasa-Orion-Nebula-By-RePublicDomain.jpg);
 }

@@ -7,7 +7,7 @@
   display: inline-block;
 }
 .gallery{
-  position: relative;
+  /*position: relative;*/
   clear: both;
   background: url(../img/divider.gif)repeat-x bottom left;
   /*margin-bottom: 20px;*/

@@ -19,7 +19,7 @@ export function login(username, password) {
       dispatch(sendingRequest(false));
       dispatch(setAuthState(success));
       if (success === true) {
-        forwardTo('/profile');
+        browserHistory.goBack();
         dispatch(changeForm({
           username: '',
           password: ''
@@ -31,9 +31,6 @@ export function login(username, password) {
   }
 }
 
-/**
- * Logs the current user out
- */
 export function logout() {
   return (dispatch) => {
     dispatch(sendingRequest(true));
@@ -41,7 +38,7 @@ export function logout() {
       if (success === true) {
         dispatch(sendingRequest(false));
         dispatch(setAuthState(false));
-        browserHistory.replace('/');
+        browserHistory.goBack();
       } else {
         requestFailed(err);
       }
