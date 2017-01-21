@@ -1,10 +1,10 @@
 import React , { Component } from 'react'
-import DisplayProducts from './DisplayProducts'
+import DisplayProducts from '../DisplayProducts'
 import { connect } from 'react-redux'
 import ReactPaginate from 'react-paginate';
-import Products from './Products'
-import { reciveMonitors } from '../actions/ProductsAction'
-class ProductsWrapper extends Component{
+import Products from './Cameras'
+import { reciveCameras } from '../../actions/ProductsAction'
+class CamerasWrapper extends Component{
   constructor() {
     super();
     this.state={classNameProduct:'product-grid'};
@@ -16,7 +16,7 @@ class ProductsWrapper extends Component{
 
   loadProductsFromServer(offset, selected) {
     let url=`${this.props.url}?limit=${this.props.perPage}&offset=${offset}`;
-    this.props.dispatch(reciveMonitors(url, offset, selected));
+    this.props.dispatch(reciveCameras(url, offset, selected));
     console.log('request');
   }
 
@@ -34,6 +34,8 @@ class ProductsWrapper extends Component{
   };
 
   render(){
+    // console.log('this.props.products.initPage.monitors: '+this.props.products.initPage.monitors);
+    // console.log('this.props.products.initPage.cameras: '+this.props.products.initPage.cameras);
     return(
       <div className="left-content">
         <DisplayProducts changeDisplayProducts={::this.changeDisplayProducts}/>
@@ -50,9 +52,9 @@ class ProductsWrapper extends Component{
           <ReactPaginate previousLabel={"previous"}
                        nextLabel={"next"}
                        breakLabel={<a href="">...</a>}
-                       initialPage={this.props.products.initPage.monitors}
+                       initialPage={this.props.products.initPage.cameras}
                        breakClassName={"break-me"}
-                       pageCount={this.props.products.pageCount.monitors}
+                       pageCount={this.props.products.pageCount.cameras}
                        marginPagesDisplayed={2}
                        pageRangeDisplayed={5}
                        onPageChange={::this.handlePageClick}
@@ -68,9 +70,9 @@ class ProductsWrapper extends Component{
 function mapStateToProps (state) {
   return {
     products: state.products,
-    url: 'http://localhost:3003/products',
+    url: 'http://localhost:3003/cameras',
     perPage: 10
   }
 }
 
-export default connect(mapStateToProps)(ProductsWrapper);
+export default connect(mapStateToProps)(CamerasWrapper);

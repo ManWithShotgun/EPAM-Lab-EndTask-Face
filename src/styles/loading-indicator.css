@@ -1,3 +1,18 @@
+.loading-div-large {
+  text-align: center;
+  width: 10em;
+  height: 10em;
+	position: relative;
+	top:3px;
+	display: block;
+  border: 10px solid #a7a7a7;
+  border-top-color: rgb(0, 56, 255);
+  border-radius: 100%;
+	margin: 0 auto;
+	margin-left: auto;
+  -webkit-animation: loading-div linear 1.2s infinite;
+  animation: loading-div linear 1.2s infinite;
+}
 .loading-div {
   width: .9em;
   height: .9em;

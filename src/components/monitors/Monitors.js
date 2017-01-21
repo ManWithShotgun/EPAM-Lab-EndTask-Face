@@ -1,7 +1,7 @@
 import React , { Component } from 'react'
-import Product from './Product'
+import Product from './Monitor'
 
-export default class Products extends Component{
+export default class Monitors extends Component{
   render(){
     const products=this.props.items.map((item)=>{
       return(

@@ -7,13 +7,17 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 
 import { Router, Route, browserHistory } from 'react-router';
-import MainContainer from './containers/MainContainer'
+// import MainContainer from './containers/MainContainer'
+import MainWrapper from './components/MainWrapper'
 import Login from './components/Login'
 import Registration from './components/Registration'
 import Profile from './components/Profile'
 import NotFound from './components/NotFound'
 import Home from './components/Home'
 import ProductById from './components/ProductById'
+import ProductsWrapper from './components/ProductsWrapper'
+import MonitorsWrapper from './components/monitors/MonitorsWrapper'
+import CamerasWrapper from './components/cameras/CamerasWrapper'
 
 
 import './styles/style.css'
@@ -55,7 +59,11 @@ render(
           <Route path="registration" component={Registration} />
           <Route path="profile" component={Profile} />
           <Route path="home" component={Home} />
-          <Route path="products" component={MainContainer} />
+          <Route component={MainWrapper}>
+            <Route path="products" component={ProductsWrapper} />
+            <Route path="monitors" component={MonitorsWrapper} />
+            <Route path="cameras" component={CamerasWrapper} />
+          </Route>
           <Route path="product/:id" component={ProductById} />
         </Route>
         <Route path="*" component={NotFound} />

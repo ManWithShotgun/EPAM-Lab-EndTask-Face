@@ -1,10 +1,10 @@
 import React , { Component } from 'react'
-import DisplayProducts from './DisplayProducts'
+import DisplayProducts from '../DisplayProducts'
 import { connect } from 'react-redux'
 import ReactPaginate from 'react-paginate';
-import Products from './Products'
-import { reciveMonitors } from '../actions/ProductsAction'
-class ProductsWrapper extends Component{
+import Products from './Monitors'
+import { reciveMonitors } from '../../actions/ProductsAction'
+class MonitorsWrapper extends Component{
   constructor() {
     super();
     this.state={classNameProduct:'product-grid'};
@@ -14,8 +14,8 @@ class ProductsWrapper extends Component{
     console.log('change '+this.state.classNameProduct);
   }
 
-  loadProductsFromServer(offset, selected) {
-    let url=`${this.props.url}?limit=${this.props.perPage}&offset=${offset}`;
+  loadProductsFromServer(offset, selected, filter) {
+    let url=`${this.props.url}?limit=${this.props.perPage}&offset=${offset}&filter=${filter}`;
     this.props.dispatch(reciveMonitors(url, offset, selected));
     console.log('request');
   }
@@ -26,16 +26,17 @@ class ProductsWrapper extends Component{
   }
 
   handlePageClick = (data) => {
-    let selected = data.selected;
-    let offset = Math.ceil(selected * this.props.perPage);
+    let selected=data.selected;
+    let offset=Math.ceil(selected * this.props.perPage);
+    let filter=this.props.products.filter.inch;
 
     console.log('handlePageClick');//при переходе на producs выполняется без нажатия; возможно из-за initialPage; выполняет роль componentDidMount
-    this.loadProductsFromServer(offset, selected);
+    this.loadProductsFromServer(offset, selected,filter);
   };
 
   render(){
     return(
-      <div className="left-content">
+      <div key={this.props.filter.inch} className="left-content">
         <DisplayProducts changeDisplayProducts={::this.changeDisplayProducts}/>
 
         {this.props.products.currentlySending ? (
@@ -67,10 +68,11 @@ class ProductsWrapper extends Component{
 
 function mapStateToProps (state) {
   return {
+    filter: state.products.filter,
     products: state.products,
-    url: 'http://localhost:3003/products',
+    url: 'http://localhost:3003/monitors',
     perPage: 10
   }
 }
 
-export default connect(mapStateToProps)(ProductsWrapper);
+export default connect(mapStateToProps)(MonitorsWrapper);

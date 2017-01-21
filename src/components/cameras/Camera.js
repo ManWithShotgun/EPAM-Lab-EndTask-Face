@@ -1,8 +1,8 @@
 import React , { Component } from 'react'
 import { Link } from 'react-router';
-import { addInBascket } from '../actions/BascketAction';
+import { addInBascket } from '../../actions/BascketAction';
 
-export default class Product extends Component{
+export default class Camera extends Component{
 
   addInBascket(e){
     console.log('addInBascket');
@@ -19,14 +19,15 @@ export default class Product extends Component{
         </h3>
         <div className="body">
           <div className="prod-img">
-            <img src="dist/public/Nasa-Orion-Nebula-By-RePublicDomain.jpg" alt=""/>
+            <img src={item.img} alt=""/>
             <span className="prod-price">${item.pricePer}</span>
           </div>
           <div className="description">
+            <b>Maga Pixels:</b> {item.MP} МПикс <br/>
             {item.description}
           </div>
           <Link className="add-product" onClick={::this.addInBascket} href="#">ADD TO CAR</Link>
-          <Link className="info-product" to={`/product/${item.id}`}>MORE INFO</Link>
+          <Link className="info-product" to={`/camera/${item.id}`}>MORE INFO</Link>
         </div>
       </div>
     )

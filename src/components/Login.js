@@ -53,7 +53,7 @@ export class Login extends Component{
                 ):(
                   <input type="submit" name="check" value="Send"/>
                 )}
-                <Link href="/registration">Rgistration</Link>
+                <Link to="/registration">Rgistration</Link>
               </div>
             </form>
           </div>
