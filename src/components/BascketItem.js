@@ -21,7 +21,7 @@ export default class BascketItem extends Component{
           <a className="item-name"href="#">{item.name}</a>
         </div>
         <div className="item-view">
-          <img src="../src/img/Antartic.jpg" alt=""/>
+          <img src={item.img} alt=""/>
         </div>
         <div className="item-count">
           <input type="text" name="" value={item.count}/>

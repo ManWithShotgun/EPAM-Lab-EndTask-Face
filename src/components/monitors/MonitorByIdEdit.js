@@ -2,21 +2,20 @@ import React, { Component } from 'react';
 // import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 // import { Link } from 'react-router';
-import {addInBascket} from '../../actions/BascketAction'
-import {readProduct} from '../../actions/ProductByIdAction'
+import {readProduct, updateProduct} from '../../actions/ProductByIdAction'
 import { URL_MONITOR } from '../../constants/urls'
 import '../../styles/product.css'
 
 
-export class ProductById extends Component {
+export class ProductByIdEdit extends Component {
 
   componentDidMount(){
     this.props.dispatch(readProduct(`${URL_MONITOR}?id=${this.props.params.id}`));
   }
 
-  _addInBascket(e){
+  _updateProduct(e){
     e.preventDefault();
-    this.props.dispatch(addInBascket(this.props.product));
+    this.props.dispatch(updateProduct(URL_MONITOR, this.props.product));
   }
 
   render() {
@@ -35,15 +34,15 @@ export class ProductById extends Component {
                 <tbody>
                 <tr>
                   <td className="detail-name">Name:</td>
-                  <td className="detail-value">{this.props.product.name}</td>
+                  <td className="detail-value"><input ref="name" type="text" defaultValue={this.props.product.name}/></td>
                 </tr>
                 <tr>
                   <td className="detail-name">inch:</td>
-                  <td className="detail-value">{this.props.product.inch}</td>
+                  <td className="detail-value"><input ref="inch" type="text" defaultValue={this.props.product.inch}/></td>
                 </tr>
                 <tr>
                   <td className="detail-name">Price:</td>
-                  <td className="detail-value">{this.props.product.pricePer}$</td>
+                  <td className="detail-value"><input ref="pricePer" type="text" defaultValue={this.props.product.pricePer}/></td>
                 </tr>
                 </tbody>
               </table>
@@ -52,10 +51,12 @@ export class ProductById extends Component {
                   Discription:
                 </div>
                 <div className="discription-text">
-                  {this.props.product.description}
+                  <textarea className="textarea-discription" ref="discription">{this.props.product.description}</textarea>
                 </div>
               </div>
-              <input type="button" onClick={::this._addInBascket} value="Add to cart"/>
+              <input type="button" onClick={::this._updateProduct} value="Edit"/>
+              <input type="button" onClick={::this._updateProduct} value="REMOVE"/>
+              <input type="button" onClick={this.props.router.goBack} value="Back"/>
             </div>
           </div>
         </div>
@@ -74,4 +75,4 @@ function mapStateToProps (state) {
 }
 
 
-export default connect(mapStateToProps)(ProductById);
+export default connect(mapStateToProps)(ProductByIdEdit);

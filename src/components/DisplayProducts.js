@@ -1,4 +1,6 @@
 import React , { Component } from 'react'
+import { Link } from 'react-router';
+import { browserHistory } from 'react-router';
 export default class DisplayProducts extends Component{
   constructor() {
     super();
@@ -24,6 +26,7 @@ export default class DisplayProducts extends Component{
       <div className="display">
         <a className={this.state.gridClassName} onClick={::this.handleChangeActive} href="#">Grid</a>
         <a className={this.state.detailClassNeme} onClick={::this.handleChangeActive} href="#">Detail</a>
+        <Link className="create" to={`${browserHistory.getCurrentLocation().pathname}/create`}>Create</Link>
       </div>
     )
   }

@@ -40,13 +40,13 @@ export class Registration extends Component{
                         <label htmlFor="first-name">Login*</label>
                       </td>
                       <td>
-                        <input type="text" ref="login" id="login" minLength="3" maxLength="16" required placeholder="Name1"/>
+                        <input ref="login" type="text" id="login" minLength="3" maxLength="16" required placeholder="Name1"/>
                       </td>
                       <td>
                         <label htmlFor="last-name">Name*</label>
                       </td>
                       <td>
-                        <input type="text" ref="name" id="name" minLength="3" maxLength="16" required placeholder="Name2"/>
+                        <input ref="name" type="text" id="name" minLength="3" maxLength="16" required placeholder="Name2"/>
                       </td>
                     </tr>
                     <tr>
@@ -54,13 +54,13 @@ export class Registration extends Component{
                         <label htmlFor="address">Address*</label>
                       </td>
                       <td>
-                        <input type="text" ref="address" id="address" required placeholder="Lorem ipsum dolor sit."/>
+                        <input ref="address" type="text" id="address" required placeholder="Lorem ipsum dolor sit."/>
                       </td>
                       <td>
                         <label htmlFor="email">Email*</label>
                       </td>
                       <td>
-                        <input type="text" ref="email" id="email" required placeholder="any@email.com"/>
+                        <input ref="email" type="text" id="email" required placeholder="any@email.com"/>
                       </td>
                     </tr>
                     <tr>
@@ -68,13 +68,13 @@ export class Registration extends Component{
                         <label htmlFor="pass">Password*</label>
                       </td>
                       <td>
-                        <input type="password" ref="pass" id="pass" required placeholder="Password"/>
+                        <input ref="pass" type="password" id="pass" required placeholder="Password"/>
                       </td>
                       <td>
                         <label htmlFor="confirm-pass">Confirm Password*</label>
                       </td>
                       <td>
-                        <input type="password" ref="passConfirm" id="confirm-pass" required placeholder="Password"/>
+                        <input ref="passConfirm" type="password" id="confirm-pass" required placeholder="Password"/>
                       </td>
                     </tr>
                   </tbody>

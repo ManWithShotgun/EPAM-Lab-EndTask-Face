@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 // import { Link } from 'react-router';
 import {addInBascket} from '../../actions/BascketAction'
-import '../styles/product.css'
+import '../../styles/product.css'
 
 
 export class ProductById extends Component {

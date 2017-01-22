@@ -14,10 +14,11 @@ import Registration from './components/Registration'
 import Profile from './components/Profile'
 import NotFound from './components/NotFound'
 import Home from './components/Home'
-import ProductById from './components/ProductById'
-import ProductsWrapper from './components/ProductsWrapper'
 import MonitorsWrapper from './components/monitors/MonitorsWrapper'
+import MonitorById from './components/monitors/MonitorById'
+import MonitorByIdEdit from './components/monitors/MonitorByIdEdit'
 import CamerasWrapper from './components/cameras/CamerasWrapper'
+import CameraById from './components/cameras/CameraById'
 
 
 import './styles/style.css'
@@ -60,11 +61,12 @@ render(
           <Route path="profile" component={Profile} />
           <Route path="home" component={Home} />
           <Route component={MainWrapper}>
-            <Route path="products" component={ProductsWrapper} />
             <Route path="monitors" component={MonitorsWrapper} />
             <Route path="cameras" component={CamerasWrapper} />
           </Route>
-          <Route path="product/:id" component={ProductById} />
+          <Route path="monitor/:id" component={MonitorById} />
+          <Route path="monitor/:id/edit" component={MonitorByIdEdit} />
+          <Route path="camera/:id" component={CameraById} />
         </Route>
         <Route path="*" component={NotFound} />
       </Route>

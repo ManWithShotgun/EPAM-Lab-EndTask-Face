@@ -15,7 +15,10 @@ export default class Camera extends Component{
     return(
       <div className={this.props.classNameProduct}>
         <h3>
-          <a href="#">{item.name}</a>
+          <Link to={`/camera/${item.id}`}>{item.name}</Link>
+          <Link className="edit-product" to={`/camera/${item.id}/edit`}>
+            <div className="edit-product-img"></div>
+          </Link>
         </h3>
         <div className="body">
           <div className="prod-img">

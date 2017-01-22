@@ -68,6 +68,15 @@
 .discription-text{
   padding: 4px;
 }
+.textarea-discription{
+  width: 99%;
+  height: 100px;
+  resize: none;
+}
+/*.details-wrapper input[type="text"]{
+  border: 1px solid #dbd6d6;
+  border-radius: 2px;
+}*/
 .details-wrapper input[type="button"]{
   color: #4781a4;
   border: 1px solid #dbd6d6;
@@ -77,6 +86,7 @@
   font-weight: bold;
   padding: 4px 20px 3px 20px;
   margin-top: 10px;
+  margin-right: 5px;
 }
 .details-wrapper input[type="button"]:hover{
   color: #4e758c;
