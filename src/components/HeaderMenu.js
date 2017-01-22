@@ -1,13 +1,23 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router';
 import BascketMenuContainer from '../containers/BascketMenuContainer'
+import { filterProduction } from '../actions/ProductsAction'
 export default class HeaderMenu extends Component{
 
-  onMoveWithFilter(e){
+  onMoveWithFilterMonitors(e){
     console.log('e.target.id '+e.target.id);
+    this.props.dispatch(filterProduction('/monitors', e.target.id))
+  }
+
+  onMoveWithFilterCameras(e){
+    console.log('e.target.id '+e.target.id);
+    this.props.dispatch(filterProduction('/cameras', e.target.id))
   }
 
   render() {
+    let callbackMonitors=::this.onMoveWithFilterMonitors,
+        callbackCameras=::this.onMoveWithFilterCameras;
+
     return(
       <div className="header">
         <div className="header-lable">
@@ -24,16 +34,16 @@ export default class HeaderMenu extends Component{
                 <li>
                   <Link to="/monitors">Monitors</Link>
                   <ul>
-                    <li><Link id="23" to="/monitors" onClick={::this.onMoveWithFilter}>23''</Link></li>
-                    <li><Link id="27" to="/monitors">27''</Link></li>
-                    <li><Link id="30" to="/monitors">30''</Link></li>
+                    <li><Link id="23" to="/monitors" onClick={callbackMonitors}>23''</Link></li>
+                    <li><Link id="27" to="/monitors" onClick={callbackMonitors}>27''</Link></li>
+                    <li><Link id="30" to="/monitors" onClick={callbackMonitors}>30''</Link></li>
                   </ul>
                 </li>
                 <li>
                   <Link to="/cameras">Cameras</Link>
                   <ul>
-                    <li><Link id="18" to="/cameras">18MP</Link></li>
-                    <li><Link id="24" to="/cameras">24MP</Link></li>
+                    <li><Link id="18" to="/cameras" onClick={callbackCameras}>18MP</Link></li>
+                    <li><Link id="24" to="/cameras" onClick={callbackCameras}>24MP</Link></li>
                   </ul>
                 </li>
               </ul>

@@ -40,7 +40,7 @@ export class RightContent extends Component{
         <label htmlFor="filter">
           {nameFilter}:
         </label>
-        <input key={nameFilter} ref="filter" type="text" name="filter" defaultValue={this.props.filter[nameFilter]} placeholder="Number" />
+        <input key={nameFilter+this.props.filter[nameFilter]} ref="filter" type="text" name="filter" defaultValue={this.props.filter[nameFilter]} placeholder="Number" />
       </div>):('');
       console.log('filter render: '+this.props.filter[nameFilter]);
     return(
@@ -76,6 +76,7 @@ export class RightContent extends Component{
 
 function mapStateToProps (state) {
   return {
+    forRenderWithSwitchProducts_NotUsed: state.products.productsList, //если переключились между категориями продуктов, то должен менятся фильтр. Не знаю как подругому
     countMonitors: state.products.countMonitors,
     countCameras: state.products.countCameras,
     filter: state.products.filter

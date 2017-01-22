@@ -12,7 +12,8 @@ export class Registration extends Component{
     e.preventDefault();
     let name = ReactDOM.findDOMNode(this.refs.login).value;
     let password = ReactDOM.findDOMNode(this.refs.pass).value;
-    this.props.dispatch(register(name, password));
+    let passwordConfirm = ReactDOM.findDOMNode(this.refs.passConfirm).value;
+    this.props.dispatch(register(name, password, passwordConfirm));
   }
 
   render() {
@@ -28,6 +29,7 @@ export class Registration extends Component{
                 <p className="form__error form__error--wrong-password">Wrong password.</p>
                 <p className="form__error form__error--field-missing">Please fill out the entire form.</p>
                 <p className="form__error form__error--failed">Something went wrong, please try again!</p>
+                <p className="form__error form__error--no-pass-confirm">Passwords do not match</p>
               </div>
               <div className="form-inputs">
                 <div>
@@ -72,7 +74,7 @@ export class Registration extends Component{
                         <label htmlFor="confirm-pass">Confirm Password*</label>
                       </td>
                       <td>
-                        <input type="password" ref="confirm-pass" id="confirm-pass" required placeholder="Password"/>
+                        <input type="password" ref="passConfirm" id="confirm-pass" required placeholder="Password"/>
                       </td>
                     </tr>
                   </tbody>

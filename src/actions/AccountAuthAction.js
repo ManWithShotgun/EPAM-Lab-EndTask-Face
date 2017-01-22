@@ -7,7 +7,7 @@ export function login(username, password) {
   return (dispatch) => {
     dispatch(sendingRequest(true));
     removeLastFormError();
-    if (anyElementsEmpty({ username, password })) {
+    if (anyElementsEmpty({ username, password})) {
       requestFailed({
         type: 'field-missing'
       });
@@ -47,13 +47,20 @@ export function logout() {
 }
 
 
-export function register(username, password) {
+export function register(username, password, passwordConfirm) {
   return (dispatch) => {
     dispatch(sendingRequest(true));
     removeLastFormError();
-    if (anyElementsEmpty({ username, password })) {
+    if (anyElementsEmpty({ username, password, passwordConfirm })) {
       requestFailed({
         type: 'field-missing'
+      });
+      dispatch(sendingRequest(false));
+      return;
+    }
+    if (password!=passwordConfirm) {
+      requestFailed({
+        type: 'no-pass-confirm'
       });
       dispatch(sendingRequest(false));
       return;

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import ReactPaginate from 'react-paginate';
 import Products from './Monitors'
 import { reciveMonitors } from '../../actions/ProductsAction'
+import { URL_MONITORS } from '../../constants/urls'
 class MonitorsWrapper extends Component{
   constructor() {
     super();
@@ -14,8 +15,9 @@ class MonitorsWrapper extends Component{
     console.log('change '+this.state.classNameProduct);
   }
 
-  loadProductsFromServer(offset, selected, filter) {
-    let url=`${this.props.url}?limit=${this.props.perPage}&offset=${offset}&filter=${filter}`;
+  loadProductsFromServer(offset, selected, filter, filterName) {
+    console.log('filterName: '+filterName);
+    let url=`${URL_MONITORS}?limit=${this.props.perPage}&offset=${offset}&filter=${filter}&filterName=${filterName}`;
     this.props.dispatch(reciveMonitors(url, offset, selected));
     console.log('request');
   }
@@ -31,12 +33,12 @@ class MonitorsWrapper extends Component{
     let filter=this.props.products.filter.inch;
 
     console.log('handlePageClick');//при переходе на producs выполняется без нажатия; возможно из-за initialPage; выполняет роль componentDidMount
-    this.loadProductsFromServer(offset, selected,filter);
+    this.loadProductsFromServer(offset, selected, filter, this.props.filter.name);
   };
 
   render(){
     return(
-      <div key={this.props.filter.inch} className="left-content">
+      <div key={this.props.filter.inch+this.props.filter.name} className="left-content">
         <DisplayProducts changeDisplayProducts={::this.changeDisplayProducts}/>
 
         {this.props.products.currentlySending ? (
@@ -70,7 +72,6 @@ function mapStateToProps (state) {
   return {
     filter: state.products.filter,
     products: state.products,
-    url: 'http://localhost:3003/monitors',
     perPage: 10
   }
 }

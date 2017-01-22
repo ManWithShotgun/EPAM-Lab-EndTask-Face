@@ -2,10 +2,16 @@ import React, { Component } from 'react'
 import { Link } from 'react-router';
 import LoadingButton from './LoadingButton';
 import { logout } from '../actions/AccountAuthAction';
-export default class TopBar extends Component {
+import { connect } from 'react-redux'
+import { filterName } from '../actions/ProductsAction'
+class TopBar extends Component {
 
   logoutAccount() {
     this.props.dispatch(logout());
+  }
+
+  handleOnChange(e){
+    this.props.dispatch(filterName(e.target.value.trim()));
   }
 
   render() {
@@ -48,8 +54,8 @@ export default class TopBar extends Component {
         {navButtons}
         <div className="right">
           <div className="div-top-form">
-            <form className="top-form" action="index.html" method="post">
-              <input className="search-input" type="text" name="" placeholder="Search this site..."/>
+            <form className="top-form" >
+              <input className="search-input" type="text" value={this.props.filter.name} onChange={::this.handleOnChange} placeholder="Search this site..."/>
               <input className="search-submit" type="submit" name="" value=""/>
             </form>
           </div>
@@ -64,3 +70,11 @@ export default class TopBar extends Component {
     )
   }
 }
+
+function mapStateToProps (state) {
+  return {
+    filter: state.products.filter
+  }
+}
+
+export default connect(mapStateToProps)(TopBar);

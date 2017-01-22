@@ -1,14 +1,17 @@
-// import request from './fakeRequest';
+import {
+  URL_LOGIN,
+  URL_REGISTRATION,
+  URL_LOGOUT
+ } from '../constants/urls'
 
 var auth = {
-  // это будет fetch
   login(username, password, callback) {
     if (this.loggedIn()) {
       callback(true);
       return;
     }
     let params=`?username=${username}&password=${password}`;
-    fetch('http://localhost:3003/login'+params).then((response)=> {
+    fetch(URL_LOGIN+params).then((response)=> {
       // console.log('status: '+response.status);
       return response.json();
      }).then((response)=> {
@@ -27,7 +30,7 @@ var auth = {
 
 
   logout(callback) {
-    fetch('http://localhost:3003/logout?token='+localStorage.token).then((response)=> {
+    fetch(`${URL_LOGOUT}?token=${localStorage.token}`).then((response)=> {
       // console.log('status: '+response.status);
       return response.json();
      }).then((response)=> {
@@ -50,7 +53,7 @@ var auth = {
 
   register(username, password, callback) {
     let params=`?username=${username}&password=${password}`;
-    fetch('http://localhost:3003/register'+params).then((response)=> {
+    fetch(URL_REGISTRATION+params).then((response)=> {
       return response.json();
     }).then((response)=>{
       if (response.registered === true) {

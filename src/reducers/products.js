@@ -5,6 +5,7 @@ import {
   SENDING_REQUEST,
   SET_FILTER_MONITORS,
   SET_FILTER_CAMERAS,
+  SET_FILTER_NAME,
   COUNTS_LOAD
 } from '../constants/Products'
 
@@ -24,7 +25,8 @@ const initialState = {
   },
   filter:{
     inch: '',
-    MP: ''
+    MP: '',
+    name: ''
   },
   countMonitors:0,
   countCameras:0,
@@ -53,6 +55,8 @@ export default function products(state = initialState, action) {
       return {...state, filter: {...state.filter,  inch: action.inch}};
     case SET_FILTER_CAMERAS:
       return {...state, filter: {...state.filter,  MP: action.MP}};
+    case SET_FILTER_NAME:
+      return {...state, filter: {...state.filter,  name: action.name}};
     case COUNTS_LOAD:
       return {...state, countCameras: action.countCameras, countMonitors: action.countMonitors}
     default:

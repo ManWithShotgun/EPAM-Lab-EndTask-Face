@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import ReactPaginate from 'react-paginate';
 import Products from './Cameras'
 import { reciveCameras } from '../../actions/ProductsAction'
+import { URL_CAMERAS } from '../../constants/urls'
 class CamerasWrapper extends Component{
   constructor() {
     super();
@@ -14,8 +15,8 @@ class CamerasWrapper extends Component{
     console.log('change '+this.state.classNameProduct);
   }
 
-  loadProductsFromServer(offset, selected) {
-    let url=`${this.props.url}?limit=${this.props.perPage}&offset=${offset}`;
+  loadProductsFromServer(offset, selected, filter, filterName) {
+    let url=`${URL_CAMERAS}?limit=${this.props.perPage}&offset=${offset}&filter=${filter}&filterName=${filterName}`;
     this.props.dispatch(reciveCameras(url, offset, selected));
     console.log('request');
   }
@@ -28,16 +29,17 @@ class CamerasWrapper extends Component{
   handlePageClick = (data) => {
     let selected = data.selected;
     let offset = Math.ceil(selected * this.props.perPage);
+    let filter=this.props.products.filter.MP;
 
     console.log('handlePageClick');//при переходе на producs выполняется без нажатия; возможно из-за initialPage; выполняет роль componentDidMount
-    this.loadProductsFromServer(offset, selected);
+    this.loadProductsFromServer(offset, selected, filter, this.props.filter.name);
   };
 
   render(){
     // console.log('this.props.products.initPage.monitors: '+this.props.products.initPage.monitors);
     // console.log('this.props.products.initPage.cameras: '+this.props.products.initPage.cameras);
     return(
-      <div className="left-content">
+      <div key={this.props.filter.MP+this.props.filter.name} className="left-content">
         <DisplayProducts changeDisplayProducts={::this.changeDisplayProducts}/>
 
         {this.props.products.currentlySending ? (
@@ -69,8 +71,8 @@ class CamerasWrapper extends Component{
 
 function mapStateToProps (state) {
   return {
+    filter: state.products.filter,
     products: state.products,
-    url: 'http://localhost:3003/cameras',
     perPage: 10
   }
 }

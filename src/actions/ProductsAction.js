@@ -5,14 +5,14 @@ import {
   SENDING_REQUEST,
   SET_FILTER_MONITORS,
   SET_FILTER_CAMERAS,
+  SET_FILTER_NAME,
   COUNTS_LOAD
 } from '../constants/Products'
 
-// export function changeOffset(offset, page){
-//   return (dispatch)=>{
-//     dispatch(setChangeOffset(offset, page));
-//   }
-// }
+import {
+  URL_COUNTS
+} from '../constants/urls'
+
 const LOCATION_MONITORS ='/monitors',
       LOCATION_CAMERAS  ='/cameras';
 
@@ -46,7 +46,7 @@ function reciveProduction(url, offset, selected, offsetCallback){
 
 export function loadCountsProduction(){
   return (dispatch)=>{
-    fetch('http://localhost:3003/counts').then((response)=>{
+    fetch(URL_COUNTS).then((response)=>{
       return response.json();
     }).then((response)=>{
       dispatch(setCountsProduction(response.countCameras, response.countMonitors));
@@ -63,6 +63,10 @@ export function filterProduction(location, filter){
     case LOCATION_CAMERAS:
       return (dispatch)=>{dispatch(setFilterCamers(filter))};
   }
+}
+
+export function filterName(filter){
+  return (dispatch)=>{dispatch(setFilterName(filter))}
 }
 
 
@@ -87,6 +91,10 @@ function setFilterMonitors(filter) {
 
 function setFilterCamers(filter) {
   return { type: SET_FILTER_CAMERAS, MP: filter };
+}
+
+function setFilterName(filter) {
+  return { type: SET_FILTER_NAME, name: filter };
 }
 
 function setCountsProduction(countCameras, countMonitors) {
