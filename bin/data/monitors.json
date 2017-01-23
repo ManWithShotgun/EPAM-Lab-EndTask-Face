@@ -1,0 +1,394 @@
+[
+  {
+    "id": 0,
+    "pricePer": 10,
+    "name": "Monitor0",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #0"
+  },
+  {
+    "id": 1,
+    "pricePer": 17,
+    "name": "Monitor1",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #1"
+  },
+  {
+    "id": 2,
+    "pricePer": 24,
+    "name": "Monitor2",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #2"
+  },
+  {
+    "id": 3,
+    "pricePer": 31,
+    "name": "Monitor3",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 31,
+    "description": "This is the description #3"
+  },
+  {
+    "id": 4,
+    "pricePer": 38,
+    "name": "Monitor4",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #4"
+  },
+  {
+    "id": 5,
+    "pricePer": 45,
+    "name": "Monitor5",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #5"
+  },
+  {
+    "id": 6,
+    "pricePer": 52,
+    "name": "Monitor6",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #6"
+  },
+  {
+    "id": 7,
+    "pricePer": 59,
+    "name": "Monitor7",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #7"
+  },
+  {
+    "id": 8,
+    "pricePer": 66,
+    "name": "Monitor8",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #8"
+  },
+  {
+    "id": 9,
+    "pricePer": 73,
+    "name": "Monitor9",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #9"
+  },
+  {
+    "id": 10,
+    "pricePer": 80,
+    "name": "Monitor10",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #10"
+  },
+  {
+    "id": 11,
+    "pricePer": 87,
+    "name": "Monitor11",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #11"
+  },
+  {
+    "id": 12,
+    "pricePer": 94,
+    "name": "Monitor12",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #12"
+  },
+  {
+    "id": 13,
+    "pricePer": 101,
+    "name": "Monitor13",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #13"
+  },
+  {
+    "id": 14,
+    "pricePer": 108,
+    "name": "Monitor14",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #14"
+  },
+  {
+    "id": 15,
+    "pricePer": 115,
+    "name": "Monitor15",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #15"
+  },
+  {
+    "id": 16,
+    "pricePer": 122,
+    "name": "Monitor16",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #16"
+  },
+  {
+    "id": 17,
+    "pricePer": 129,
+    "name": "Monitor17",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #17"
+  },
+  {
+    "id": 18,
+    "pricePer": 136,
+    "name": "Monitor18",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #18"
+  },
+  {
+    "id": 19,
+    "pricePer": 143,
+    "name": "Monitor19",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #19"
+  },
+  {
+    "id": 20,
+    "pricePer": 150,
+    "name": "Monitor20",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #20"
+  },
+  {
+    "id": 21,
+    "pricePer": 157,
+    "name": "Monitor21",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #21"
+  },
+  {
+    "id": 22,
+    "pricePer": 164,
+    "name": "Monitor22",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #22"
+  },
+  {
+    "id": 23,
+    "pricePer": 171,
+    "name": "Monitor23",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #23"
+  },
+  {
+    "id": 24,
+    "pricePer": 178,
+    "name": "Monitor24",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 23,
+    "description": "This is the description #24"
+  },
+  {
+    "id": 26,
+    "pricePer": 52,
+    "name": "Monitor26",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #26"
+  },
+  {
+    "id": 27,
+    "pricePer": 54,
+    "name": "Monitor27",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #27"
+  },
+  {
+    "id": 28,
+    "pricePer": 56,
+    "name": "Monitor28",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #28"
+  },
+  {
+    "id": 29,
+    "pricePer": 58,
+    "name": "Monitor29",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #29"
+  },
+  {
+    "id": 30,
+    "pricePer": 60,
+    "name": "Monitor30",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #30"
+  },
+  {
+    "id": 31,
+    "pricePer": 62,
+    "name": "Monitor31",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #31"
+  },
+  {
+    "id": 32,
+    "pricePer": 64,
+    "name": "Monitor32",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #32"
+  },
+  {
+    "id": 33,
+    "pricePer": 66,
+    "name": "Monitor33",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #33"
+  },
+  {
+    "id": 34,
+    "pricePer": 68,
+    "name": "Monitor34",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #34"
+  },
+  {
+    "id": 35,
+    "pricePer": 70,
+    "name": "Monitor35",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #35"
+  },
+  {
+    "id": 36,
+    "pricePer": 72,
+    "name": "Monitor36",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #36"
+  },
+  {
+    "id": 37,
+    "pricePer": 74,
+    "name": "Monitor37",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #37"
+  },
+  {
+    "id": 38,
+    "pricePer": 76,
+    "name": "Monitor38",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #38"
+  },
+  {
+    "id": 39,
+    "pricePer": 78,
+    "name": "Monitor39",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #39"
+  },
+  {
+    "id": 40,
+    "pricePer": 80,
+    "name": "Monitor40",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #40"
+  },
+  {
+    "id": 41,
+    "pricePer": 82,
+    "name": "Monitor41",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #41"
+  },
+  {
+    "id": 42,
+    "pricePer": 84,
+    "name": "Monitor42",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #42"
+  },
+  {
+    "id": 43,
+    "pricePer": 86,
+    "name": "Monitor43",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #43"
+  },
+  {
+    "id": 44,
+    "pricePer": 88,
+    "name": "Monitor44",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #44"
+  },
+  {
+    "id": 45,
+    "pricePer": 90,
+    "name": "Monitor45",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #45"
+  },
+  {
+    "id": 46,
+    "pricePer": 92,
+    "name": "Monitor46",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #46"
+  },
+  {
+    "id": 47,
+    "pricePer": 94,
+    "name": "Monitor47",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #47"
+  },
+  {
+    "id": 48,
+    "pricePer": 96,
+    "name": "Monitor48",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #48"
+  },
+  {
+    "id": 49,
+    "pricePer": 98,
+    "name": "Monitor49",
+    "img": "/dist/public/monitor-1.jpg",
+    "inch": 29,
+    "description": "This is the description #49"
+  }
+]

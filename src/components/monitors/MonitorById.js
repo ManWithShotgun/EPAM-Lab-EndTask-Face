@@ -8,10 +8,11 @@ import { URL_MONITOR } from '../../constants/urls'
 import '../../styles/product.css'
 
 
-export class ProductById extends Component {
+class MonitorById extends Component {
 
   componentDidMount(){
-    this.props.dispatch(readProduct(`${URL_MONITOR}?id=${this.props.params.id}`));
+    // console.log('this.props.product.name: '+this.props.product.img);
+    this.props.dispatch(readProduct(`${URL_MONITOR}/${this.props.params.id}`));
   }
 
   _addInBascket(e){
@@ -56,6 +57,7 @@ export class ProductById extends Component {
                 </div>
               </div>
               <input type="button" onClick={::this._addInBascket} value="Add to cart"/>
+              <input type="button" onClick={this.props.router.goBack} value="Back"/>
             </div>
           </div>
         </div>
@@ -74,4 +76,4 @@ function mapStateToProps (state) {
 }
 
 
-export default connect(mapStateToProps)(ProductById);
+export default connect(mapStateToProps)(MonitorById);

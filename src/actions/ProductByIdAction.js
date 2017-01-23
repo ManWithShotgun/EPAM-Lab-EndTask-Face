@@ -18,12 +18,56 @@ export function readProduct(url){
   }
 }
 
-export function updateProduct(url,item){
+export function createProduct(url,item){
   return (dispatch)=>{
     let data = new FormData();
     data.append('json', JSON.stringify(item));
     dispatch(setCurrentlySending(true));
     fetch(url, {method: 'POST', body: data}).then((response)=> {
+      return response.json();
+    }).then((data)=> {
+      console.log('data.success: ');
+      console.log(data.success);
+      if(data.success){
+        dispatch(setReadProduct(item));
+      }
+      //ответ об удачи
+      dispatch(setCurrentlySending(false));
+    }).catch((err)=>{
+      console.log(err);
+      //ответ об ошибке
+      dispatch(setCurrentlySending(false));
+    });
+  }
+}
+
+export function updateProduct(url,item){
+  return (dispatch)=>{
+    let data = new FormData();
+    data.append('json', JSON.stringify(item));
+    dispatch(setCurrentlySending(true));
+    fetch(url, {method: 'PUT', body: data}).then((response)=> {
+      return response.json();
+    }).then((data)=> {
+      console.log('data.success: ');
+      console.log(data.success);
+      if(data.success){
+        dispatch(setReadProduct(item));
+      }
+      //ответ об удачи
+      dispatch(setCurrentlySending(false));
+    }).catch((err)=>{
+      console.log(err);
+      //ответ об ошибке
+      dispatch(setCurrentlySending(false));
+    });
+  }
+}
+
+export function deleteProduct(url){
+  return (dispatch)=>{
+    dispatch(setCurrentlySending(true));
+    fetch(url, {method: 'DELETE'}).then((response)=> {
       return response.json();
     }).then((data)=> {
       console.log('data.success: ');

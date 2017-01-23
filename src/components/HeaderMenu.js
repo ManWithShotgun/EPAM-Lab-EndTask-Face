@@ -21,7 +21,7 @@ export default class HeaderMenu extends Component{
     return(
       <div className="header">
         <div className="header-lable">
-          <Link to="#"><img src="dist/public/logo.png" alt=""/></Link>
+          <Link to="#"><img src="/dist/public/logo.png" alt=""/></Link>
           <span>BTEMPLATES IS BLOGGER TEMPLATES.</span>
         </div>
         <div className="show-box"></div>

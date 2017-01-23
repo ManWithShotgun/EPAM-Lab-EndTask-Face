@@ -6,6 +6,7 @@ react-paginate : https://github.com/AdeleD/react-paginate
 goto: сделать bascket блок по клику, а не по hover
 goto: первым делом post запросы
 fix: если выбрать 5 страницу и изменить фильтр то страница останется 5 но пустая; пагинатор не сломается, просто будет 5-ая страница
+fix: после нажатия edit textarea очищается.
 
 нетипизированные entity в store; избыточный json; нету entity (нету сущностей) из-за чего создание новых объектов (т.к. item в bascket) через литералы объекта.
 
@@ -30,3 +31,8 @@ PUT — обновление ресурса  PUT /customers/{id}
 DELETE — удаление ресурса DELETE /customers/{id}
 
 Какой uri должен быть у страницы с формой изменения ресурска? Пока решил так (GET /customers/{id}/edit), но это не REST. Возможно редактирование в модальном окне.
+
+new FormData создает myltipart content-type, по этому для парсинга на сервере NodeJS надо юзать 'connect-multiparty'. На java х3 что надо юзать.
+
+
+rfc 2068 http/1.1

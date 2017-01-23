@@ -2,30 +2,21 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 // import { Link } from 'react-router';
-import {readProduct, updateProduct, deleteProduct} from '../../actions/ProductByIdAction'
-import { URL_MONITOR } from '../../constants/urls'
+import { createProduct } from '../../actions/ProductByIdAction'
+import { URL_MONITORS } from '../../constants/urls'
 import '../../styles/product.css'
 
 
-class MonitorByIdEdit extends Component {
+class CreateMonitor extends Component {
 
-  componentDidMount(){
-    this.props.dispatch(readProduct(`${URL_MONITOR}/${this.props.params.id}`));
-  }
-
-  _updateProduct(e){
+  _createProduct(e){
     e.preventDefault();
     let name = ReactDOM.findDOMNode(this.refs.name).value;
     let inch = ReactDOM.findDOMNode(this.refs.inch).value;
     let pricePer = ReactDOM.findDOMNode(this.refs.pricePer).value;
     let img = ReactDOM.findDOMNode(this.refs.photo).value;
     let discription = ReactDOM.findDOMNode(this.refs.discription).value;
-    this.props.dispatch(updateProduct(`${URL_MONITOR}/${this.props.params.id}`, {id: this.props.product.id, name, inch, pricePer, img, discription}));
-  }
-
-  _deleteProduct(e){
-    e.preventDefault();
-    this.props.dispatch(deleteProduct(`${URL_MONITOR}/${this.props.params.id}`));
+    this.props.dispatch(createProduct(URL_MONITORS, {name, inch, pricePer, img, discription}));
   }
 
   render() {
@@ -43,28 +34,25 @@ class MonitorByIdEdit extends Component {
         ): (
         <div className="profile-wrapper">
           <div className="profile-div">
-            <h3>{this.props.product.name}</h3>
+            <h3>Create</h3>
             <div className="details-wrapper">
-              <div className="img-div">
-                <img src={this.props.product.img} alt=""/>
-              </div>
               <table>
                 <tbody>
                 <tr>
                   <td className="detail-name">Name:</td>
-                  <td className="detail-value"><input ref="name" type="text" defaultValue={this.props.product.name}/></td>
+                  <td className="detail-value"><input ref="name" type="text" defaultValue=""/></td>
                 </tr>
                 <tr>
                   <td className="detail-name">inch:</td>
-                  <td className="detail-value"><input ref="inch" type="text" defaultValue={this.props.product.inch}/></td>
+                  <td className="detail-value"><input ref="inch" type="text" defaultValue=""/></td>
                 </tr>
                 <tr>
                   <td className="detail-name">Price:</td>
-                  <td className="detail-value"><input ref="pricePer" type="text" defaultValue={this.props.product.pricePer}/></td>
+                  <td className="detail-value"><input ref="pricePer" type="text" defaultValue=""/></td>
                 </tr>
                 <tr>
                   <td className="detail-name">img URL:</td>
-                  <td className="detail-value"><input ref="photo" type="text" defaultValue={this.props.product.img}/></td>
+                  <td className="detail-value"><input ref="photo" type="text" defaultValue=""/></td>
                 </tr>
                 </tbody>
               </table>
@@ -73,11 +61,10 @@ class MonitorByIdEdit extends Component {
                   Discription:
                 </div>
                 <div className="discription-text">
-                  <textarea ref="discription" className="textarea-discription" defaultValue={this.props.product.description} />
+                  <textarea ref="discription" className="textarea-discription" defaultValue="" />
                 </div>
               </div>
-              <input type="button" onClick={::this._updateProduct} value="Edit"/>
-              <input type="button" onClick={::this._deleteProduct} value="REMOVE"/>
+              <input type="button" onClick={::this._createProduct} value="Edit"/>
               <input type="button" onClick={this.props.router.goBack} value="Back"/>
             </div>
           </div>
@@ -91,10 +78,9 @@ class MonitorByIdEdit extends Component {
 
 function mapStateToProps (state) {
   return {
-    product: state.productById.currentProduct,
     currentlySending: state.productById.currentlySending
   }
 }
 
 
-export default connect(mapStateToProps)(MonitorByIdEdit);
+export default connect(mapStateToProps)(CreateMonitor);

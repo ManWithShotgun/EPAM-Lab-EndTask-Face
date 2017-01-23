@@ -1,0 +1,394 @@
+[
+  {
+    "id": 0,
+    "pricePer": 10,
+    "name": "Camera0",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #0"
+  },
+  {
+    "id": 1,
+    "pricePer": 17,
+    "name": "Camera1",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #1"
+  },
+  {
+    "id": 2,
+    "pricePer": 24,
+    "name": "Camera2",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #2"
+  },
+  {
+    "id": 3,
+    "pricePer": 31,
+    "name": "Camera3",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #3"
+  },
+  {
+    "id": 4,
+    "pricePer": 38,
+    "name": "Camera4",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #4"
+  },
+  {
+    "id": 5,
+    "pricePer": 45,
+    "name": "Camera5",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #5"
+  },
+  {
+    "id": 6,
+    "pricePer": 52,
+    "name": "Camera6",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #6"
+  },
+  {
+    "id": 7,
+    "pricePer": 59,
+    "name": "Camera7",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #7"
+  },
+  {
+    "id": 8,
+    "pricePer": 66,
+    "name": "Camera8",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #8"
+  },
+  {
+    "id": 9,
+    "pricePer": 73,
+    "name": "Camera9",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #9"
+  },
+  {
+    "id": 10,
+    "pricePer": 80,
+    "name": "Camera10",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #10"
+  },
+  {
+    "id": 11,
+    "pricePer": 87,
+    "name": "Camera11",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #11"
+  },
+  {
+    "id": 12,
+    "pricePer": 94,
+    "name": "Camera12",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #12"
+  },
+  {
+    "id": 13,
+    "pricePer": 101,
+    "name": "Camera13",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #13"
+  },
+  {
+    "id": 14,
+    "pricePer": 108,
+    "name": "Camera14",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #14"
+  },
+  {
+    "id": 15,
+    "pricePer": 115,
+    "name": "Camera15",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #15"
+  },
+  {
+    "id": 16,
+    "pricePer": 122,
+    "name": "Camera16",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #16"
+  },
+  {
+    "id": 17,
+    "pricePer": 129,
+    "name": "Camera17",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #17"
+  },
+  {
+    "id": 18,
+    "pricePer": 136,
+    "name": "Camera18",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #18"
+  },
+  {
+    "id": 19,
+    "pricePer": 143,
+    "name": "Camera19",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #19"
+  },
+  {
+    "id": 20,
+    "pricePer": 150,
+    "name": "Camera20",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #20"
+  },
+  {
+    "id": 21,
+    "pricePer": 157,
+    "name": "Camera21",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #21"
+  },
+  {
+    "id": 22,
+    "pricePer": 164,
+    "name": "Camera22",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #22"
+  },
+  {
+    "id": 23,
+    "pricePer": 171,
+    "name": "Camera23",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #23"
+  },
+  {
+    "id": 24,
+    "pricePer": 178,
+    "name": "Camera24",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 24,
+    "description": "Camera description #24"
+  },
+  {
+    "id": 26,
+    "pricePer": 52,
+    "name": "Camera26",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #26"
+  },
+  {
+    "id": 27,
+    "pricePer": 54,
+    "name": "Camera27",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #27"
+  },
+  {
+    "id": 28,
+    "pricePer": 56,
+    "name": "Camera28",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #28"
+  },
+  {
+    "id": 29,
+    "pricePer": 58,
+    "name": "Camera29",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #29"
+  },
+  {
+    "id": 30,
+    "pricePer": 60,
+    "name": "Camera30",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #30"
+  },
+  {
+    "id": 31,
+    "pricePer": 62,
+    "name": "Camera31",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #31"
+  },
+  {
+    "id": 32,
+    "pricePer": 64,
+    "name": "Camera32",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #32"
+  },
+  {
+    "id": 33,
+    "pricePer": 66,
+    "name": "Camera33",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #33"
+  },
+  {
+    "id": 34,
+    "pricePer": 68,
+    "name": "Camera34",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #34"
+  },
+  {
+    "id": 35,
+    "pricePer": 70,
+    "name": "Camera35",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #35"
+  },
+  {
+    "id": 36,
+    "pricePer": 72,
+    "name": "Camera36",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #36"
+  },
+  {
+    "id": 37,
+    "pricePer": 74,
+    "name": "Camera37",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #37"
+  },
+  {
+    "id": 38,
+    "pricePer": 76,
+    "name": "Camera38",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #38"
+  },
+  {
+    "id": 39,
+    "pricePer": 78,
+    "name": "Camera39",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #39"
+  },
+  {
+    "id": 40,
+    "pricePer": 80,
+    "name": "Camera40",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #40"
+  },
+  {
+    "id": 41,
+    "pricePer": 82,
+    "name": "Camera41",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #41"
+  },
+  {
+    "id": 42,
+    "pricePer": 84,
+    "name": "Camera42",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #42"
+  },
+  {
+    "id": 43,
+    "pricePer": 86,
+    "name": "Camera43",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #43"
+  },
+  {
+    "id": 44,
+    "pricePer": 88,
+    "name": "Camera44",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #44"
+  },
+  {
+    "id": 45,
+    "pricePer": 90,
+    "name": "Camera45",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #45"
+  },
+  {
+    "id": 46,
+    "pricePer": 92,
+    "name": "Camera46",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #46"
+  },
+  {
+    "id": 47,
+    "pricePer": 94,
+    "name": "Camera47",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #47"
+  },
+  {
+    "id": 48,
+    "pricePer": 96,
+    "name": "Camera48",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #48"
+  },
+  {
+    "id": 49,
+    "pricePer": 98,
+    "name": "Camera49",
+    "img": "/dist/public/camera-1.jpg",
+    "MP": 28,
+    "description": "Camera description #49"
+  }
+]

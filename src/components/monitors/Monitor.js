@@ -16,7 +16,7 @@ export default class Monitor extends Component{
       <div className={this.props.classNameProduct}>
         <h3>
           <Link to={`/monitor/${item.id}`}>{item.name}</Link>
-          <Link className="edit-product" to={`/monitor/${item.id}/edit`}>
+          <Link className="edit-product" to={`/monitors/${item.id}/edit`}>
             <div className="edit-product-img"></div>
           </Link>
         </h3>
@@ -30,7 +30,7 @@ export default class Monitor extends Component{
             {item.description}
           </div>
           <Link className="add-product" onClick={::this.addInBascket} href="#">ADD TO CAR</Link>
-          <Link className="info-product" to={`/monitor/${item.id}`}>MORE INFO</Link>
+          <Link className="info-product" to={`/monitors/${item.id}`}>MORE INFO</Link>
         </div>
       </div>
     )
