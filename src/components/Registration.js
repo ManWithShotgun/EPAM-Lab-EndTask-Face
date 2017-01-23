@@ -10,10 +10,11 @@ export class Registration extends Component{
 
   onSubmit(e){
     e.preventDefault();
-    let name = ReactDOM.findDOMNode(this.refs.login).value;
+    let username = ReactDOM.findDOMNode(this.refs.login).value;
     let password = ReactDOM.findDOMNode(this.refs.pass).value;
     let passwordConfirm = ReactDOM.findDOMNode(this.refs.passConfirm).value;
-    this.props.dispatch(register(name, password, passwordConfirm));
+    let role = ReactDOM.findDOMNode(this.refs.role).value;
+    this.props.dispatch(register({username, password, passwordConfirm, role}));
   }
 
   render() {
@@ -51,10 +52,13 @@ export class Registration extends Component{
                     </tr>
                     <tr>
                       <td>
-                        <label htmlFor="address">Address*</label>
+                        <label htmlFor="address">Role*</label>
                       </td>
                       <td>
-                        <input ref="address" type="text" id="address" required placeholder="Lorem ipsum dolor sit."/>
+                        <select ref="role">
+                          <option value="user">User</option>
+                          <option value="admin">Admin</option>
+                        </select>
                       </td>
                       <td>
                         <label htmlFor="email">Email*</label>

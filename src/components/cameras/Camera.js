@@ -30,7 +30,7 @@ export default class Camera extends Component{
             {item.description}
           </div>
           <Link className="add-product" onClick={::this.addInBascket} href="#">ADD TO CAR</Link>
-          <Link className="info-product" to={`/camera/${item.id}`}>MORE INFO</Link>
+          <Link className="info-product" to={`/cameras/${item.id}`}>MORE INFO</Link>
         </div>
       </div>
     )

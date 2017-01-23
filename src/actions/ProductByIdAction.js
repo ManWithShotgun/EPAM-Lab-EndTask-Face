@@ -10,9 +10,14 @@ export function readProduct(url){
       return response.json();
     }).then((data)=> {
       dispatch(setReadProduct(data.product));
+      if(!data.product){
+        requestFailed({type: 'field-missing'});
+        return;
+      }
       dispatch(setCurrentlySending(false));
     }).catch((err)=>{
       console.log(err);
+      requestFailed({type: 'field-missing'});
       dispatch(setCurrentlySending(false));
     });
   }
@@ -26,16 +31,16 @@ export function createProduct(url,item){
     fetch(url, {method: 'POST', body: data}).then((response)=> {
       return response.json();
     }).then((data)=> {
-      console.log('data.success: ');
-      console.log(data.success);
-      if(data.success){
-        dispatch(setReadProduct(item));
+      console.log('data.success: '+data.success);
+      if(!data.success){
+        requestFailed({type: 'field-missing'});
+        return;
       }
-      //ответ об удачи
+      requestFailed({type: 'success'});
       dispatch(setCurrentlySending(false));
     }).catch((err)=>{
       console.log(err);
-      //ответ об ошибке
+      requestFailed({type: 'field-missing'});
       dispatch(setCurrentlySending(false));
     });
   }
@@ -49,16 +54,16 @@ export function updateProduct(url,item){
     fetch(url, {method: 'PUT', body: data}).then((response)=> {
       return response.json();
     }).then((data)=> {
-      console.log('data.success: ');
-      console.log(data.success);
-      if(data.success){
-        dispatch(setReadProduct(item));
+      console.log('data.success: '+data.success);
+      if(!data.success){
+        requestFailed({type: 'field-missing'});
+        return;
       }
-      //ответ об удачи
+      requestFailed({type: 'success'});
       dispatch(setCurrentlySending(false));
     }).catch((err)=>{
       console.log(err);
-      //ответ об ошибке
+      requestFailed({type: 'field-missing'});
       dispatch(setCurrentlySending(false));
     });
   }
@@ -70,16 +75,39 @@ export function deleteProduct(url){
     fetch(url, {method: 'DELETE'}).then((response)=> {
       return response.json();
     }).then((data)=> {
-      console.log('data.success: ');
-      console.log(data.success);
-      //ответ об удачи
+      console.log('data.success: '+data.success);
+      if(!data.success){
+        requestFailed({type: 'field-missing'});
+        return;
+      }
+      requestFailed({type: 'success'});
       dispatch(setCurrentlySending(false));
     }).catch((err)=>{
       console.log(err);
-      //ответ об ошибке
+      requestFailed({type: 'field-missing'});
       dispatch(setCurrentlySending(false));
     });
   }
+}
+
+let lastErrType = '';
+
+function requestFailed(err) {
+  console.log(err.type);
+  removeLastFormError();
+  const form = document.querySelector('.form__error-wrapper');
+  form.classList.add('js-form__err');
+  form.classList.add('js-form__err-animation');
+  form.classList.add('js-form__err--' + err.type);
+  lastErrType = err.type;
+  setTimeout(() => {
+    form.classList.remove('js-form__err-animation');
+  }, 150);
+}
+
+function removeLastFormError() {
+  const form = document.querySelector('.form__error-wrapper');
+  form.classList.remove('js-form__err--' + lastErrType);
 }
 
 function setCurrentlySending(currentlySending) {

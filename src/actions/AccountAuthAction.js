@@ -1,4 +1,9 @@
-import { SET_AUTH, CHANGE_FORM, SENDING_REQUEST } from '../constants/AccountAuth';
+import {
+  SET_AUTH,
+  CHANGE_FORM,
+  SENDING_REQUEST,
+  SET_ADMIN_ROLE
+ } from '../constants/AccountAuth';
 import auth from '../utils/auth';
 import { browserHistory } from 'react-router';
 
@@ -15,10 +20,13 @@ export function login(username, password) {
       return;
     }
     auth.login(username, password, (success, err) => {
-
+      /*err в успешно случае будет role*/
       dispatch(sendingRequest(false));
       dispatch(setAuthState(success));
       if (success === true) {
+        if(err=='admin'){
+          dispatch(setAdminRole(true));
+        }
         browserHistory.goBack();
         dispatch(changeForm({
           username: '',
@@ -38,6 +46,7 @@ export function logout() {
       if (success === true) {
         dispatch(sendingRequest(false));
         dispatch(setAuthState(false));
+        dispatch(setAdminRole(false))
         browserHistory.goBack();
       } else {
         requestFailed(err);
@@ -47,18 +56,18 @@ export function logout() {
 }
 
 
-export function register(username, password, passwordConfirm) {
+export function register(user) {
   return (dispatch) => {
     dispatch(sendingRequest(true));
     removeLastFormError();
-    if (anyElementsEmpty({ username, password, passwordConfirm })) {
+    if (anyElementsEmpty(user)) {
       requestFailed({
         type: 'field-missing'
       });
       dispatch(sendingRequest(false));
       return;
     }
-    if (password!=passwordConfirm) {
+    if (user.password!=user.passwordConfirm) {
       requestFailed({
         type: 'no-pass-confirm'
       });
@@ -66,10 +75,13 @@ export function register(username, password, passwordConfirm) {
       return;
     }
 
-    auth.register(username, password, (success, err) => {
+    auth.register(user, (success, err) => {
       dispatch(sendingRequest(false));
       dispatch(setAuthState(success));
       if (success) {
+        if(err=='admin'){
+          dispatch(setAdminRole(true));
+        }
         forwardTo('/profile');
         dispatch(changeForm({
           username: '',
@@ -95,6 +107,10 @@ export function sendingRequest(sending) {
   return { type: SENDING_REQUEST, sending };
 }
 
+export function setAdminRole(isAdmin) {
+  return { type: SET_ADMIN_ROLE, isAdmin };
+}
+
 function forwardTo(location) {
   console.log('forwardTo(' + location + ')');
   browserHistory.push(location);
@@ -104,16 +120,12 @@ let lastErrType = '';
 
 function requestFailed(err) {
   console.log(err.type);
-  // Remove the class of the last error so there can only ever be one
   removeLastFormError();
   const form = document.querySelector('.form__error-wrapper');
-  // And add the respective classes
   form.classList.add('js-form__err');
   form.classList.add('js-form__err-animation');
   form.classList.add('js-form__err--' + err.type);
   lastErrType = err.type;
-  // Remove the animation class after the animation is finished, so it
-  // can play again on the next error
   setTimeout(() => {
     form.classList.remove('js-form__err-animation');
   }, 150);

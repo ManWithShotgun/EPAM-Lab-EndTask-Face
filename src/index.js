@@ -51,6 +51,14 @@ function checkAuth(nextState, replaceState) {
   console.log(nextState.location.pathname);
 }
 
+function chechIsAdmin(nextState, replaceState) {
+  const role=window.localStorage.getItem('role');
+  const isAdmin=role ? (role=='admin') : false;
+  if(!isAdmin){
+    replaceState('/');
+  }
+}
+
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
@@ -65,10 +73,12 @@ render(
             <Route path="monitors" component={MonitorsWrapper} />
             <Route path="cameras" component={CamerasWrapper} />
           </Route>
-          <Route path="monitors/create" component={CreateMonitor} />
           <Route path="monitors/:id" component={MonitorById} />
-          <Route path="monitors/:id/edit" component={MonitorByIdEdit} />
-          <Route path="camera/:id" component={CameraById} />
+          <Route path="cameras/:id" component={CameraById} />
+          <Route onEnter={chechIsAdmin}>
+            <Route path="monitors/create" component={CreateMonitor} />
+            <Route path="monitors/:id/edit" component={MonitorByIdEdit} />
+          </Route>
         </Route>
         <Route path="*" component={NotFound} />
       </Route>

@@ -17,8 +17,9 @@ var auth = {
      }).then((response)=> {
       if (response.authenticated) {
         localStorage.token = response.token;
+        localStorage.role = response.role;
         console.log('new token: '+response.token);
-        callback(true);
+        callback(true, response.role);
       } else {
         callback(false, response.error);
       }
@@ -37,6 +38,7 @@ var auth = {
        if(response.logout){
          callback(true)
          delete localStorage.token;
+         delete localStorage.role;
        }else{
          callback(false, response.error);
        }
@@ -51,13 +53,17 @@ var auth = {
     return !!localStorage.token;
   },
 
-  register(username, password, callback) {
-    let params=`?username=${username}&password=${password}`;
+  isAdmin() {
+    return localStorage.role ? (localStorage.role=='admin') : false;
+  },
+
+  register(user, callback) {
+    let params=`?username=${user.username}&password=${user.password}&role=${user.role}`;
     fetch(URL_REGISTRATION+params).then((response)=> {
       return response.json();
     }).then((response)=>{
       if (response.registered === true) {
-        this.login(username, password, callback);
+        this.login(user.username, user.password, callback);
       } else {
         callback(false, response.error);
       }

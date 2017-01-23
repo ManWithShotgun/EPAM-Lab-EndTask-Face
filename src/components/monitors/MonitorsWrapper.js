@@ -39,12 +39,15 @@ class MonitorsWrapper extends Component{
   render(){
     return(
       <div key={this.props.filter.inch+this.props.filter.name} className="left-content">
-        <DisplayProducts changeDisplayProducts={::this.changeDisplayProducts}/>
+        <DisplayProducts
+          adminRole={this.props.adminRole}
+          changeDisplayProducts={::this.changeDisplayProducts}/>
 
         {this.props.products.currentlySending ? (
           <div className="loading-div-large"></div>
         ) : (
           <Products
+            adminRole={this.props.adminRole}
             items={this.props.products.productsList}
             dispatch={this.props.dispatch}
             classNameProduct={this.state.classNameProduct}/>
@@ -70,6 +73,7 @@ class MonitorsWrapper extends Component{
 
 function mapStateToProps (state) {
   return {
+    adminRole: state.accountAuth.adminRole,
     filter: state.products.filter,
     products: state.products,
     perPage: 10

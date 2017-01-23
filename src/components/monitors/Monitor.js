@@ -16,9 +16,13 @@ export default class Monitor extends Component{
       <div className={this.props.classNameProduct}>
         <h3>
           <Link to={`/monitor/${item.id}`}>{item.name}</Link>
-          <Link className="edit-product" to={`/monitors/${item.id}/edit`}>
-            <div className="edit-product-img"></div>
-          </Link>
+          {this.props.adminRole ? (
+            <Link className="edit-product" to={`/monitors/${item.id}/edit`}>
+              <div className="edit-product-img"></div>
+            </Link>
+          ) : (
+            <div></div>
+          )}
         </h3>
         <div className="body">
           <div className="prod-img">

@@ -5,6 +5,7 @@ react-paginate : https://github.com/AdeleD/react-paginate
 
 goto: сделать bascket блок по клику, а не по hover
 goto: первым делом post запросы
+goto: сделать нормально хранение account role 
 fix: если выбрать 5 страницу и изменить фильтр то страница останется 5 но пустая; пагинатор не сломается, просто будет 5-ая страница
 fix: после нажатия edit textarea очищается.
 

@@ -2,7 +2,7 @@
   /*display: none;*/
   position: relative;
   max-width: calc(100% - 2em);
-  margin: 0 auto;
+  margin: 5px auto;
   /*margin-bottom: 1em;*/
   text-align: center;
 }
@@ -19,17 +19,18 @@
 .js-form__err-animation {
   animation: shake 150ms ease-in-out;
 }
-
-.js-form__err .form__error-wrapper {
-  display: flex;
-}
-
 .js-form__err--user-doesnt-exist .form__error--username-not-registered,
 .js-form__err--username-exists .form__error--username-taken,
 .js-form__err--password-wrong .form__error--wrong-password,
 .js-form__err--no-pass-confirm .form__error--no-pass-confirm,
 .js-form__err--field-missing .form__error--field-missing {
   display: inline-block;
+  margin-bottom: 1em;
+}
+
+.js-form__err--success .form__error--success {
+  display: inline-block;
+  background-color: #48d388;
   margin-bottom: 1em;
 }
 

@@ -1,5 +1,5 @@
 var users={
-  '1': '1'
+  '1': {password:'1', role: 'admin'}
 };
 var tokens=[];
 
@@ -9,12 +9,13 @@ class customAuth{
     let password=req.query.password;
     console.log(`login: ${username}|${password}`);
     const userExists = doesUserExist(username);
-    if (userExists && password===users[username]) {
+    if (userExists && password===users[username].password) {
       let token=Math.random().toString(36).substring(7);
       tokens.push(token);
       resSendWithAccess(res,{
           authenticated: true,
-          token: token
+          token: token,
+          role: users[username].role
         });
     }else{
       let error;
@@ -39,9 +40,10 @@ class customAuth{
   register(req, res){
     let username=req.query.username;
     let password=req.query.password;
-    console.log(`reg: ${username}|${password}`);
+    let role=req.query.role;
+    console.log(`reg: ${username}|${password}|${role}`);
     if (!doesUserExist(username)) {
-      users[username]=password;
+      users[username]={password, role};
       resSendWithAccess(res, {
         registered: true
       });
@@ -55,7 +57,7 @@ class customAuth{
     }
     console.log('USERS:');
     for(let user in users){
-      console.log(`  ${user}|${users[user]}`);
+      console.log(`  ${user}|${users[user].role}`);
     }
   }
 }
