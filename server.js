@@ -39,7 +39,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use( multipart() );
 
-app.route('/ws/cameras').get(cameras.camerasHandler);
+app.route('/ws/cameras').get(cameras.camerasHandler).post(cameras.CreateCameraHandler);
+app.route('/ws/cameras/:id').get(cameras.cameraHandler).delete(cameras.DeleteCameraHandler).put(cameras.UpdateCameraHandler);
 
 app.route('/ws/monitors').get(monitors.monitorsHandler).post(monitors.CreateMonitorHandler);
 app.route('/ws/monitors/:id').get(monitors.monitorHandler).delete(monitors.DeleteMonitorHandler).put(monitors.UpdateMonitorHandler);

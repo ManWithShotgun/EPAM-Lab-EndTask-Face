@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { createProduct } from '../../actions/ProductByIdAction'
 import { URL_MONITORS } from '../../constants/urls'
 import '../../styles/product.css'
+import '../../styles/formErr.css'
 
 
 class CreateMonitor extends Component {
@@ -27,51 +28,56 @@ class CreateMonitor extends Component {
       <td className="detail-name">img URL:</td>
       <td className="detail-value"><input ref="photo" type="text" defaultValue={this.props.product.img}/></td>
     </tr>
+
     */
     console.log('this.props.currentlySending: '+this.props.currentlySending);
     const product=this.props.currentlySending ? (
           <div className="loading-div-large"></div>
         ): (
-        <div className="profile-wrapper">
-          <div className="profile-div">
-            <h3>Create</h3>
-            <div className="details-wrapper">
-              <table>
-                <tbody>
-                <tr>
-                  <td className="detail-name">Name:</td>
-                  <td className="detail-value"><input ref="name" type="text" defaultValue=""/></td>
-                </tr>
-                <tr>
-                  <td className="detail-name">inch:</td>
-                  <td className="detail-value"><input ref="inch" type="text" defaultValue=""/></td>
-                </tr>
-                <tr>
-                  <td className="detail-name">Price:</td>
-                  <td className="detail-value"><input ref="pricePer" type="text" defaultValue=""/></td>
-                </tr>
-                <tr>
-                  <td className="detail-name">img URL:</td>
-                  <td className="detail-value"><input ref="photo" type="text" defaultValue=""/></td>
-                </tr>
-                </tbody>
-              </table>
-              <div className="discription">
-                <div className="discription-name">
-                  Discription:
-                </div>
-                <div className="discription-text">
-                  <textarea ref="discription" className="textarea-discription" defaultValue="" />
-                </div>
+          <div className="details-wrapper">
+            <table>
+              <tbody>
+              <tr>
+                <td className="detail-name">Name:</td>
+                <td className="detail-value"><input ref="name" type="text" defaultValue=""/></td>
+              </tr>
+              <tr>
+                <td className="detail-name">inch:</td>
+                <td className="detail-value"><input ref="inch" type="text" defaultValue=""/></td>
+              </tr>
+              <tr>
+                <td className="detail-name">Price:</td>
+                <td className="detail-value"><input ref="pricePer" type="text" defaultValue=""/></td>
+              </tr>
+              <tr>
+                <td className="detail-name">img URL:</td>
+                <td className="detail-value"><input ref="photo" type="text" defaultValue=""/></td>
+              </tr>
+              </tbody>
+            </table>
+            <div className="discription">
+              <div className="discription-name">
+                Discription:
               </div>
-              <input type="button" onClick={::this._createProduct} value="Edit"/>
-              <input type="button" onClick={this.props.router.goBack} value="Back"/>
+              <div className="discription-text">
+                <textarea ref="discription" className="textarea-discription" defaultValue="" />
+              </div>
             </div>
+            <input type="button" onClick={::this._createProduct} value="Create"/>
+            <input type="button" onClick={this.props.router.goBack} value="Back"/>
           </div>
-        </div>
       );
     return(
-      <div>{product}</div>
+      <div className="profile-wrapper">
+        <div className="profile-div">
+          <h3>Create</h3>
+          <div className="form__error-wrapper">
+            <p className="form__error form__error--field-missing">Error!</p>
+            <p className="form__error form__error--success">Done!</p>
+          </div>
+          {product}
+        </div>
+      </div>
     )
   }
 }

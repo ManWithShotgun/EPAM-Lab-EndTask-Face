@@ -36,16 +36,17 @@ class CamerasWrapper extends Component{
   };
 
   render(){
-    // console.log('this.props.products.initPage.monitors: '+this.props.products.initPage.monitors);
-    // console.log('this.props.products.initPage.cameras: '+this.props.products.initPage.cameras);
     return(
       <div key={this.props.filter.MP+this.props.filter.name} className="left-content">
-        <DisplayProducts changeDisplayProducts={::this.changeDisplayProducts}/>
+        <DisplayProducts
+          adminRole={this.props.adminRole}
+          changeDisplayProducts={::this.changeDisplayProducts}/>
 
         {this.props.products.currentlySending ? (
           <div className="loading-div-large"></div>
         ) : (
           <Products
+            adminRole={this.props.adminRole}
             items={this.props.products.productsList}
             dispatch={this.props.dispatch}
             classNameProduct={this.state.classNameProduct}/>
@@ -71,6 +72,7 @@ class CamerasWrapper extends Component{
 
 function mapStateToProps (state) {
   return {
+    adminRole: state.accountAuth.adminRole,
     filter: state.products.filter,
     products: state.products,
     perPage: 10

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 // import { Link } from 'react-router';
 import {readProduct, updateProduct, deleteProduct} from '../../actions/ProductByIdAction'
-import { URL_MONITOR } from '../../constants/urls'
+import { URL_CAMERA } from '../../constants/urls'
 import '../../styles/product.css'
 import '../../styles/formErr.css'
 
@@ -11,22 +11,22 @@ import '../../styles/formErr.css'
 class MonitorByIdEdit extends Component {
 
   componentDidMount(){
-    this.props.dispatch(readProduct(`${URL_MONITOR}/${this.props.params.id}`));
+    this.props.dispatch(readProduct(`${URL_CAMERA}/${this.props.params.id}`));
   }
 
   _updateProduct(e){
     e.preventDefault();
     let name = ReactDOM.findDOMNode(this.refs.name).value;
-    let inch = ReactDOM.findDOMNode(this.refs.inch).value;
+    let MP = ReactDOM.findDOMNode(this.refs.MP).value;
     let pricePer = ReactDOM.findDOMNode(this.refs.pricePer).value;
     let img = ReactDOM.findDOMNode(this.refs.photo).value;
     let discription = ReactDOM.findDOMNode(this.refs.discription).value;
-    this.props.dispatch(updateProduct(`${URL_MONITOR}/${this.props.params.id}`, {id: this.props.product.id, name, inch, pricePer, img, discription}));
+    this.props.dispatch(updateProduct(`${URL_CAMERA}/${this.props.params.id}`, {id: this.props.product.id, name, MP, pricePer, img, discription}));
   }
 
   _deleteProduct(e){
     e.preventDefault();
-    this.props.dispatch(deleteProduct(`${URL_MONITOR}/${this.props.params.id}`));
+    this.props.dispatch(deleteProduct(`${URL_CAMERA}/${this.props.params.id}`));
   }
 
   render() {
@@ -56,8 +56,8 @@ class MonitorByIdEdit extends Component {
                 <td className="detail-value"><input ref="name" type="text" defaultValue={this.props.product.name}/></td>
               </tr>
               <tr>
-                <td className="detail-name">inch:</td>
-                <td className="detail-value"><input ref="inch" type="text" defaultValue={this.props.product.inch}/></td>
+                <td className="detail-name">MP:</td>
+                <td className="detail-value"><input ref="MP" type="text" defaultValue={this.props.product.MP}/></td>
               </tr>
               <tr>
                 <td className="detail-name">Price:</td>

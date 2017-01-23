@@ -20,6 +20,8 @@ import MonitorByIdEdit from './components/monitors/MonitorByIdEdit'
 import CreateMonitor from './components/monitors/CreateMonitor'
 import CamerasWrapper from './components/cameras/CamerasWrapper'
 import CameraById from './components/cameras/CameraById'
+import CameraByIdEdit from './components/cameras/CameraByIdEdit'
+import CreateCamera from './components/cameras/CreateCamera'
 
 
 import './styles/style.css'
@@ -73,11 +75,13 @@ render(
             <Route path="monitors" component={MonitorsWrapper} />
             <Route path="cameras" component={CamerasWrapper} />
           </Route>
-          <Route path="monitors/:id" component={MonitorById} />
-          <Route path="cameras/:id" component={CameraById} />
+          <Route path="monitors/:id/" component={MonitorById} />
+          <Route path="cameras/:id/" component={CameraById} />
           <Route onEnter={chechIsAdmin}>
             <Route path="monitors/create" component={CreateMonitor} />
             <Route path="monitors/:id/edit" component={MonitorByIdEdit} />
+            <Route path="cameras/create" component={CreateCamera} />
+            <Route path="cameras/:id/edit" component={CameraByIdEdit} />
           </Route>
         </Route>
         <Route path="*" component={NotFound} />

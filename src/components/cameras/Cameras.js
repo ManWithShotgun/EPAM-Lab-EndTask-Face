@@ -5,7 +5,7 @@ export default class Cameras extends Component{
   render(){
     const products=this.props.items.map((item)=>{
       return(
-        <Product key={item.id} item={item} dispatch={this.props.dispatch} classNameProduct={this.props.classNameProduct} />
+        <Product key={item.id} adminRole={this.props.adminRole} item={item} dispatch={this.props.dispatch} classNameProduct={this.props.classNameProduct} />
       )
     });
     return(

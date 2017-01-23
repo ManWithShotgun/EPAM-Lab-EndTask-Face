@@ -15,7 +15,7 @@ export default class Monitor extends Component{
     return(
       <div className={this.props.classNameProduct}>
         <h3>
-          <Link to={`/monitor/${item.id}`}>{item.name}</Link>
+          <Link to={`/monitors/${item.id}`}>{item.name}</Link>
           {this.props.adminRole ? (
             <Link className="edit-product" to={`/monitors/${item.id}/edit`}>
               <div className="edit-product-img"></div>
@@ -34,7 +34,7 @@ export default class Monitor extends Component{
             {item.description}
           </div>
           <Link className="add-product" onClick={::this.addInBascket} href="#">ADD TO CAR</Link>
-          <Link className="info-product" to={`/monitors/${item.id}`}>MORE INFO</Link>
+          <Link className="info-product" to={`/monitors/${item.id}/`}>MORE INFO</Link>
         </div>
       </div>
     )

@@ -12,6 +12,7 @@ export function readProduct(url){
       dispatch(setReadProduct(data.product));
       if(!data.product){
         requestFailed({type: 'field-missing'});
+        dispatch(setCurrentlySending(false));
         return;
       }
       dispatch(setCurrentlySending(false));
@@ -34,6 +35,7 @@ export function createProduct(url,item){
       console.log('data.success: '+data.success);
       if(!data.success){
         requestFailed({type: 'field-missing'});
+        dispatch(setCurrentlySending(false));
         return;
       }
       requestFailed({type: 'success'});
@@ -57,6 +59,7 @@ export function updateProduct(url,item){
       console.log('data.success: '+data.success);
       if(!data.success){
         requestFailed({type: 'field-missing'});
+        dispatch(setCurrentlySending(false));
         return;
       }
       requestFailed({type: 'success'});
@@ -78,6 +81,7 @@ export function deleteProduct(url){
       console.log('data.success: '+data.success);
       if(!data.success){
         requestFailed({type: 'field-missing'});
+        dispatch(setCurrentlySending(false));
         return;
       }
       requestFailed({type: 'success'});

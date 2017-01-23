@@ -15,10 +15,14 @@ export default class Camera extends Component{
     return(
       <div className={this.props.classNameProduct}>
         <h3>
-          <Link to={`/camera/${item.id}`}>{item.name}</Link>
-          <Link className="edit-product" to={`/camera/${item.id}/edit`}>
-            <div className="edit-product-img"></div>
-          </Link>
+          <Link to={`/cameras/${item.id}`}>{item.name}</Link>
+            {this.props.adminRole ? (
+              <Link className="edit-product" to={`/cameras/${item.id}/edit`}>
+                <div className="edit-product-img"></div>
+              </Link>
+            ) : (
+              <div></div>
+            )}
         </h3>
         <div className="body">
           <div className="prod-img">
@@ -30,7 +34,7 @@ export default class Camera extends Component{
             {item.description}
           </div>
           <Link className="add-product" onClick={::this.addInBascket} href="#">ADD TO CAR</Link>
-          <Link className="info-product" to={`/cameras/${item.id}`}>MORE INFO</Link>
+          <Link className="info-product" to={`/cameras/${item.id}/`}>MORE INFO</Link>
         </div>
       </div>
     )

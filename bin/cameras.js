@@ -7,7 +7,31 @@ var PER_PAGE      = 10;
 
 class CamerasServ{
 
-  
+  DeleteCameraHandler(req, res){
+    console.log('delete id: '+req.params.id);
+    res.json({success: true})
+  }
+
+  CreateCameraHandler(req, res){
+    console.log('Create JSON: '+req.body.json);
+    res.json({success: true})
+  }
+
+  UpdateCameraHandler(req, res){
+    console.log('Edit JSON: '+req.body.json);
+    console.log('Id: '+req.params.id)
+    res.json({success: true})
+  }
+
+  cameraHandler(req, res){
+    var items      = JSON.parse(fs.readFileSync(DATA_CAMERAS));
+    var id         = req.params.id;
+
+    var item =items.find((item)=>{ return item.id==id});
+
+    return res.json({product : item});
+  }
+
   camerasHandler(req, res){
     console.log(req.query.offset);
     var items          = JSON.parse(fs.readFileSync(DATA_CAMERAS));

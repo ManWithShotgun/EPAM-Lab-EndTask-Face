@@ -8,7 +8,7 @@ export default class Profile extends Component{
       <h3>Profile User</h3>
       <div className="details-wrapper">
         <div className="img-div">
-          <img src="../src/img/default-user.jpg" alt=""/>
+          <img src="/dist/public/default-user.jpg" alt=""/>
         </div>
         <table>
           <tbody>

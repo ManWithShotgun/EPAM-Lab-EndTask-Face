@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-// import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-// import { Link } from 'react-router';
 import {addInBascket} from '../../actions/BascketAction'
 import {readProduct} from '../../actions/ProductByIdAction'
 import { URL_MONITOR } from '../../constants/urls'
 import '../../styles/product.css'
+import '../../styles/formErr.css'
 
 
 class MonitorById extends Component {
 
   componentDidMount(){
-    // console.log('this.props.product.name: '+this.props.product.img);
     this.props.dispatch(readProduct(`${URL_MONITOR}/${this.props.params.id}`));
   }
 

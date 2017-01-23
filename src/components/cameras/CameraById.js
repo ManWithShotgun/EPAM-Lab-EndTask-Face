@@ -1,45 +1,45 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-// import { Link } from 'react-router';
 import {addInBascket} from '../../actions/BascketAction'
+import {readProduct} from '../../actions/ProductByIdAction'
+import { URL_CAMERA } from '../../constants/urls'
 import '../../styles/product.css'
+import '../../styles/formErr.css'
 
 
-export class ProductById extends Component {
+class CameraById extends Component {
+
+  componentDidMount(){
+    this.props.dispatch(readProduct(`${URL_CAMERA}/${this.props.params.id}`));
+  }
 
   _addInBascket(e){
     e.preventDefault();
-    this.props.addInBascket({});
+    this.props.dispatch(addInBascket(this.props.product));
   }
 
   render() {
-    /*Реализовать заброс с сервера*/
-    return(
-      <div className="profile-wrapper">
-        <div className="profile-div">
-          <h3>Orion</h3>
+    console.log('this.props.currentlySending: '+this.props.currentlySending);
+    const product=this.props.currentlySending ? (
+          <div className="loading-div-large"></div>
+        ): (
           <div className="details-wrapper">
             <div className="img-div">
-              <img src="../src/img/Nasa-Orion-Nebula-By-RePublicDomain.jpg" alt=""/>
+              <img src={this.props.product.img} alt=""/>
             </div>
             <table>
               <tbody>
               <tr>
                 <td className="detail-name">Name:</td>
-                <td className="detail-value">{this.props.params.id}</td>
+                <td className="detail-value">{this.props.product.name}</td>
               </tr>
               <tr>
-                <td className="detail-name">Size:</td>
-                <td className="detail-value">3123</td>
+                <td className="detail-name">MP:</td>
+                <td className="detail-value">{this.props.product.MP}</td>
               </tr>
               <tr>
-                <td className="detail-name">Price</td>
-                <td className="detail-value">50$</td>
-              </tr>
-              <tr>
-                <td className="detail-name">Count:</td>
-                <td className="detail-value">1</td>
+                <td className="detail-name">Price:</td>
+                <td className="detail-value">{this.props.product.pricePer}$</td>
               </tr>
               </tbody>
             </table>
@@ -48,27 +48,32 @@ export class ProductById extends Component {
                 Discription:
               </div>
               <div className="discription-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo rerum minus repellendus odit nobis, et vel. Iure ipsum asperiores autem nostrum sapiente alias dignissimos est consectetur, reprehenderit perspiciatis expedita ullam dicta, error fuga illo cupiditate saepe harum. Dolor qui quam odio sint in accusantium necessitatibus eligendi tempora ad perferendis architecto blanditiis, repellendus quasi deserunt voluptas, quia illo magni rem atque, animi magnam. Quod officiis, inventore labore voluptate dicta totam consequuntur aspernatur dolore, asperiores assumenda ratione, non minima ad quas. Eaque illo tempore, fugit ex autem molestias debitis magni, dolor recusandae vero incidunt amet natus numquam, hic sunt. Atque, consequuntur sapiente.
+                {this.props.product.description}
               </div>
             </div>
             <input type="button" onClick={::this._addInBascket} value="Add to cart"/>
+            <input type="button" onClick={this.props.router.goBack} value="Back"/>
           </div>
+      );
+    return(
+      <div className="profile-wrapper">
+        <div className="profile-div">
+          <h3>Info</h3>
+          <div className="form__error-wrapper">
+            <p className="form__error form__error--field-missing">Error!</p>
+          </div>
+          {product}
         </div>
       </div>
-    );
+    )
   }
 }
 
 function mapStateToProps (state) {
   return {
-    products: state.products
+    product: state.productById.currentProduct,
+    currentlySending: state.productById.currentlySending
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    bascketActions: bindActionCreators(addInBascket, dispatch)
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductById);
+export default connect(mapStateToProps)(CameraById);
