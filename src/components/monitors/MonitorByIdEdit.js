@@ -42,46 +42,50 @@ class MonitorByIdEdit extends Component {
 
     */
     console.log('this.props.currentlySending: '+this.props.currentlySending);
-    const product=this.props.currentlySending ? (
-        <div className="loading-div-large"></div>
-        ): (
-          <div className="details-wrapper">
-            <div className="img-div">
-              <img src={this.props.product.img} alt=""/>
-            </div>
-            <table>
-              <tbody>
-              <tr>
-                <td className="detail-name">Name:</td>
-                <td className="detail-value"><input ref="name" type="text" defaultValue={this.props.product.name}/></td>
-              </tr>
-              <tr>
-                <td className="detail-name">inch:</td>
-                <td className="detail-value"><input ref="inch" type="text" defaultValue={this.props.product.inch}/></td>
-              </tr>
-              <tr>
-                <td className="detail-name">Price:</td>
-                <td className="detail-value"><input ref="pricePer" type="text" defaultValue={this.props.product.pricePer}/></td>
-              </tr>
-              <tr>
-                <td className="detail-name">img URL:</td>
-                <td className="detail-value"><input ref="photo" type="text" defaultValue={this.props.product.img}/></td>
-              </tr>
-              </tbody>
-            </table>
-            <div className="discription">
-              <div className="discription-name">
-                Discription:
+    try{
+      var product=this.props.currentlySending ? (
+          <div className="loading-div-large"></div>
+          ): (
+            <div className="details-wrapper">
+              <div className="img-div">
+                <img src={this.props.product.img} alt=""/>
               </div>
-              <div className="discription-text">
-                <textarea ref="discription" className="textarea-discription" defaultValue={this.props.product.description} />
+              <table>
+                <tbody>
+                <tr>
+                  <td className="detail-name">Name:</td>
+                  <td className="detail-value"><input ref="name" type="text" defaultValue={this.props.product.name}/></td>
+                </tr>
+                <tr>
+                  <td className="detail-name">inch:</td>
+                  <td className="detail-value"><input ref="inch" type="text" defaultValue={this.props.product.inch}/></td>
+                </tr>
+                <tr>
+                  <td className="detail-name">Price:</td>
+                  <td className="detail-value"><input ref="pricePer" type="text" defaultValue={this.props.product.pricePer}/></td>
+                </tr>
+                <tr>
+                  <td className="detail-name">img URL:</td>
+                  <td className="detail-value"><input ref="photo" type="text" defaultValue={this.props.product.img}/></td>
+                </tr>
+                </tbody>
+              </table>
+              <div className="discription">
+                <div className="discription-name">
+                  Discription:
+                </div>
+                <div className="discription-text">
+                  <textarea ref="discription" className="textarea-discription" defaultValue={this.props.product.description} />
+                </div>
               </div>
+              <input type="button" onClick={::this._updateProduct} value="Edit"/>
+              <input type="button" onClick={::this._deleteProduct} value="REMOVE"/>
+              <input type="button" onClick={this.props.router.goBack} value="Back"/>
             </div>
-            <input type="button" onClick={::this._updateProduct} value="Edit"/>
-            <input type="button" onClick={::this._deleteProduct} value="REMOVE"/>
-            <input type="button" onClick={this.props.router.goBack} value="Back"/>
-          </div>
-      );
+        );
+      }catch(e){
+        console.log('product undefined; Generally it is error happen on first load');
+      }
     return(
       <div className="profile-wrapper">
         <div className="profile-div">

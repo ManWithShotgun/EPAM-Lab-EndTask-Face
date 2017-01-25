@@ -42,7 +42,8 @@ class MonitorByIdEdit extends Component {
 
     */
     console.log('this.props.currentlySending: '+this.props.currentlySending);
-    const product=this.props.currentlySending ? (
+    try{
+    var product=this.props.currentlySending ? (
         <div className="loading-div-large"></div>
         ): (
           <div className="details-wrapper">
@@ -82,6 +83,9 @@ class MonitorByIdEdit extends Component {
             <input type="button" onClick={this.props.router.goBack} value="Back"/>
           </div>
       );
+    }catch(e){
+      console.log('product undefined; Generally it is error happen on first load');
+    }
     return(
       <div className="profile-wrapper">
         <div className="profile-div">

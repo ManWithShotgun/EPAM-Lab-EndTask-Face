@@ -19,41 +19,45 @@ class MonitorById extends Component {
   }
   render() {
     console.log('this.props.currentlySending: '+this.props.currentlySending);
-    const product=this.props.currentlySending ? (
-          <div className="loading-div-large"></div>
-        ): (
-          <div className="details-wrapper">
-            <div className="img-div">
-              <img src={this.props.product.img} alt=""/>
-            </div>
-            <table>
-              <tbody>
-              <tr>
-                <td className="detail-name">Name:</td>
-                <td className="detail-value">{this.props.product.name}</td>
-              </tr>
-              <tr>
-                <td className="detail-name">inch:</td>
-                <td className="detail-value">{this.props.product.inch}</td>
-              </tr>
-              <tr>
-                <td className="detail-name">Price:</td>
-                <td className="detail-value">{this.props.product.pricePer}$</td>
-              </tr>
-              </tbody>
-            </table>
-            <div className="discription">
-              <div className="discription-name">
-                Discription:
+    try{
+      var product=this.props.currentlySending ? (
+            <div className="loading-div-large"></div>
+          ): (
+            <div className="details-wrapper">
+              <div className="img-div">
+                <img src={this.props.product.img} alt=""/>
               </div>
-              <div className="discription-text">
-                {this.props.product.description}
+              <table>
+                <tbody>
+                <tr>
+                  <td className="detail-name">Name:</td>
+                  <td className="detail-value">{this.props.product.name}</td>
+                </tr>
+                <tr>
+                  <td className="detail-name">inch:</td>
+                  <td className="detail-value">{this.props.product.inch}</td>
+                </tr>
+                <tr>
+                  <td className="detail-name">Price:</td>
+                  <td className="detail-value">{this.props.product.pricePer}$</td>
+                </tr>
+                </tbody>
+              </table>
+              <div className="discription">
+                <div className="discription-name">
+                  Discription:
+                </div>
+                <div className="discription-text">
+                  {this.props.product.description}
+                </div>
               </div>
+              <input type="button" onClick={::this._addInBascket} value="Add to cart"/>
+              <input type="button" onClick={this.props.router.goBack} value="Back"/>
             </div>
-            <input type="button" onClick={::this._addInBascket} value="Add to cart"/>
-            <input type="button" onClick={this.props.router.goBack} value="Back"/>
-          </div>
       );
+    }catch(e){
+      console.log('product undefined; Generally it is error happen on first load');
+    }
     return(
       <div className="profile-wrapper">
         <div className="profile-div">
