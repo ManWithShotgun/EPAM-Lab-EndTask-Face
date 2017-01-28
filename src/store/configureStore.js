@@ -3,6 +3,9 @@ import rootReducer from '../reducers'
 import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
 
+/*Для работы Reduc Dev Tools. Подключать как composeWithDevTools(applyMiddleware(logger, thunk))*/
+// import { composeWithDevTools } from 'redux-devtools-extension';
+
 export default function configureStore(initialState) {
   console.log('store start');
   const logger=createLogger();

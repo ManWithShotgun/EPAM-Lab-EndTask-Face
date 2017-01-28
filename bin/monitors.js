@@ -40,7 +40,7 @@ class MonirorsServ{
     var nextOffset     = offset + PER_PAGE;
     var previousOffset = (offset - PER_PAGE < 1) ? 0 : offset - PER_PAGE;
 
-    // console.log('filter: '+filterName+' | '+filterName);
+    console.log('filter: '+filter+' | '+filterName);
     if(filter){
       items=items.filter((item)=>{ return item.inch==filter});
     }

@@ -20,8 +20,8 @@ class MonitorByIdEdit extends Component {
     let MP = ReactDOM.findDOMNode(this.refs.MP).value;
     let pricePer = ReactDOM.findDOMNode(this.refs.pricePer).value;
     let img = ReactDOM.findDOMNode(this.refs.photo).value;
-    let discription = ReactDOM.findDOMNode(this.refs.discription).value;
-    this.props.dispatch(updateProduct(`${URL_CAMERA}/${this.props.params.id}`, {id: this.props.product.id, name, MP, pricePer, img, discription}));
+    let description = ReactDOM.findDOMNode(this.refs.description).value;
+    this.props.dispatch(updateProduct(`${URL_CAMERA}/${this.props.params.id}`, {id: this.props.product.id, name, MP, pricePer, img, description}));
   }
 
   _deleteProduct(e){
@@ -75,7 +75,7 @@ class MonitorByIdEdit extends Component {
                 Discription:
               </div>
               <div className="discription-text">
-                <textarea ref="discription" className="textarea-discription" defaultValue={this.props.product.description} />
+                <textarea ref="description" className="textarea-discription" defaultValue={this.props.product.description} />
               </div>
             </div>
             <input type="button" onClick={::this._updateProduct} value="Edit"/>

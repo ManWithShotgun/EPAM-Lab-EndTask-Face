@@ -16,8 +16,8 @@ class CreateCamera extends Component {
     let MP = ReactDOM.findDOMNode(this.refs.MP).value;
     let pricePer = ReactDOM.findDOMNode(this.refs.pricePer).value;
     let img = ReactDOM.findDOMNode(this.refs.photo).value;
-    let discription = ReactDOM.findDOMNode(this.refs.discription).value;
-    this.props.dispatch(createProduct(URL_CAMERAS, {name, MP, pricePer, img, discription}));
+    let description = ReactDOM.findDOMNode(this.refs.description).value;
+    this.props.dispatch(createProduct(URL_CAMERAS, {name, MP, pricePer, img, description}));
   }
 
   render() {
@@ -61,7 +61,7 @@ class CreateCamera extends Component {
                 Discription:
               </div>
               <div className="discription-text">
-                <textarea ref="discription" className="textarea-discription" defaultValue="" />
+                <textarea ref="description" className="textarea-discription" defaultValue="" />
               </div>
             </div>
             <input type="button" onClick={::this._createProduct} value="Create"/>
