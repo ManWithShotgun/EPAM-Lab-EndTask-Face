@@ -26,6 +26,10 @@ export function readProduct(url){
 
 export function createProduct(url,item){
   return (dispatch)=>{
+    if(checkEmptyProduct(item)){
+      requestFailed({type: 'field-missing'});
+      return;
+    }
     let data = new FormData();
     data.append('json', JSON.stringify(item));
     dispatch(setCurrentlySending(true));
@@ -50,6 +54,10 @@ export function createProduct(url,item){
 
 export function updateProduct(url,item){
   return (dispatch)=>{
+    if(checkEmptyProduct(item)){
+      requestFailed({type: 'field-missing'});
+      return;
+    }
     let data = new FormData();
     data.append('json', JSON.stringify(item));
     dispatch(setCurrentlySending(true));
@@ -92,6 +100,15 @@ export function deleteProduct(url){
       dispatch(setCurrentlySending(false));
     });
   }
+}
+
+function checkEmptyProduct(item){
+  for (let prop in item) {
+    if (!item[prop]) {
+      return true;
+    }
+  }
+  return false;
 }
 
 let lastErrType = '';

@@ -20,7 +20,7 @@ export function login(username, password) {
       return;
     }
     auth.login(username, password, (success, err) => {
-      /*err в успешно случае будет role*/
+      /*err в успешном случае будет role*/
       dispatch(sendingRequest(false));
       dispatch(setAuthState(success));
       if (success === true) {
