@@ -34,7 +34,7 @@ class customAuth{
   logout(req, res){
     let token=req.query.token;
     console.log(`logout token: ${token}`);
-    resSendWithAccess(res,{logout: true});// не хочу заморачиватся проверкой
+    resSendWithAccess(res,{logout: true});// не хочу заморачиваться проверкой
   }
 
   register(req, res){

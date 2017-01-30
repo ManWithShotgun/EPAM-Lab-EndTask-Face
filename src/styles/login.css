@@ -50,6 +50,7 @@
 }
 .form-row input[type="submit"]{
   /*text-decoration: none;*/
+  height: 23px;
   color: #4781a4;
   border: 1px solid #dbd6d6;
   background-color: #c8c8c8;
@@ -75,6 +76,9 @@
   font-size: 11px;
   font-weight: bold;
   padding: 4px 20px 3px 20px;
+  box-sizing: border-box;
+  height: 23px;
+  margin-left: 3px;
 }
 .form-row a:hover{
   color: #4e758c;

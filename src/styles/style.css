@@ -426,6 +426,20 @@ a.bag-empty:hover, a.bag-checkout:hover{
 .menu-two-div{
   display: inline;
 }
+.any-btn{
+  display: inline-block;
+  text-decoration: none;
+  color: #4781a4;
+  border: 1px solid #dbd6d6;
+  background-color: #c8c8c8;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 20px 3px 20px;
+  box-sizing: border-box;
+  height: 23px;
+  margin-left: 20px;
+}
 
 @media screen and (max-width: 1160px) {
   .show-box {display: none;}

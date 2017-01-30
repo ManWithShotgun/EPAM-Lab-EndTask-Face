@@ -8,6 +8,7 @@ import configureStore from './store/configureStore'
 
 import { Router, Route, browserHistory } from 'react-router';
 // import MainContainer from './containers/MainContainer'
+import About from './components/About'
 import MainWrapper from './components/MainWrapper'
 import Login from './components/Login'
 import Registration from './components/Registration'
@@ -71,6 +72,7 @@ render(
           <Route path="registration" component={Registration} />
           <Route path="profile" component={Profile} />
           <Route path="home" component={Home} />
+          <Route path="about" component={About}/>
           <Route component={MainWrapper}>
             <Route path="monitors" component={MonitorsWrapper} />
             <Route path="cameras" component={CamerasWrapper} />
