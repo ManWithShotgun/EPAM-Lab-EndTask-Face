@@ -13,8 +13,10 @@ export class Registration extends Component{
     let username = ReactDOM.findDOMNode(this.refs.login).value;
     let password = ReactDOM.findDOMNode(this.refs.pass).value;
     let passwordConfirm = ReactDOM.findDOMNode(this.refs.passConfirm).value;
+    let name = ReactDOM.findDOMNode(this.refs.name).value;
+    let email = ReactDOM.findDOMNode(this.refs.email).value;
     let role = ReactDOM.findDOMNode(this.refs.role).value;
-    this.props.dispatch(register({username, password, passwordConfirm, role}));
+    this.props.dispatch(register({username, password, passwordConfirm, email, name, role}));
   }
 
   render() {

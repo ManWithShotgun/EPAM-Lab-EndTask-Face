@@ -22,7 +22,7 @@ var auth = {
         localStorage.token = response.token;
         // localStorage.role = decoded.role;
         console.log('new token: '+response.token);
-        callback(true, response.role);
+        callback(true);
       } else {
         callback(false, response.error);
       }
@@ -39,8 +39,8 @@ var auth = {
       return response.json();
      }).then((response)=> {
        if(response.logout){
-         callback(true)
          delete localStorage.token;
+         callback(true)
         //  delete localStorage.role;
        }else{
          callback(false, response.error);
@@ -70,7 +70,7 @@ var auth = {
   },
 
   register(user, callback) {
-    let params=`?username=${user.username}&password=${user.password}&role=${user.role}`;
+    let params=`?username=${user.username}&password=${user.password}&role=${user.role}&name=${user.name}&email=${user.email}`;
     fetch(URL_REGISTRATION+params).then((response)=> {
       return response.json();
     }).then((response)=>{

@@ -1,18 +1,17 @@
 /* eslint-disable */
-const http = require('http');
-const express = require('express');
+const http      = require('http');
+const express   = require('express');
 var fs          = require('fs');
 var path        = require('path');
-// var util        = require('util');
 var serveStatic = require('serve-static');
 
-var bodyParser = require('body-parser');
-var multipart = require('connect-multiparty');
+var bodyParser  = require('body-parser');
+var multipart   = require('connect-multiparty');
 
 
 var auth        =require('./bin/customAuth');
-var monitors        =require('./bin/monitors');
-var cameras        =require('./bin/cameras');
+var monitors    =require('./bin/monitors');
+var cameras     =require('./bin/cameras');
 
 var DATA_MONITORS = path.join(__dirname, 'bin/data', 'monitors.json');
 var DATA_CAMERAS  = path.join(__dirname, 'bin/data', 'cameras.json');
@@ -53,16 +52,16 @@ app.get('/ws/counts', function(req, res) {
 });
 
 app.get('/ws/login', (req, res) => {
-  setTimeout(auth.login, 2000, req, res)
+  setTimeout(auth.login, 100, req, res)
 
 });
 
 app.get('/ws/logout', function(req, res) {
-  setTimeout(auth.logout, 2000, req, res)
+  setTimeout(auth.logout, 100, req, res)
 
 });
 app.get('/ws/register', function(req, res) {
-  setTimeout(auth.register, 2000, req, res)
+  setTimeout(auth.register, 100, req, res)
 });
 
 

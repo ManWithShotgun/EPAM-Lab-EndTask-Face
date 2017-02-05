@@ -1,5 +1,5 @@
 var users={
-  '1': {password:'1', role: 'admin'}
+  '1': {password:'1', role: 'admin', name: 'Name1',email: 'Email1'}
 };
 var tokens=[];
 
@@ -17,7 +17,7 @@ class customAuth{
       resSendWithAccess(res,{
           authenticated: true,
           token: token,
-          role: users[username].role
+          user: users[username]
         });
     }else{
       let error;
@@ -42,10 +42,12 @@ class customAuth{
   register(req, res){
     let username=req.query.username;
     let password=req.query.password;
+    let name=req.query.name;
+    let email=req.query.email;
     let role=req.query.role;
-    console.log(`reg: ${username}|${password}|${role}`);
+    console.log(`reg: ${username}|${password}|${role}|${name}|${email}`);
     if (!doesUserExist(username)) {
-      users[username]={password, role};
+      users[username]={password, role, name, email};
       resSendWithAccess(res, {
         registered: true
       });

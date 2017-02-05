@@ -24,9 +24,10 @@ export function login(username, password) {
       dispatch(sendingRequest(false));
       dispatch(setAuthState(success));
       if (success === true) {
-        if(err=='admin'){
-          dispatch(setAdminRole(true));
-        }
+        // if(err=='admin'){
+        //   dispatch(setAdminRole(true));
+        // }
+        dispatch(setAdminRole(auth.isAdmin()));
         browserHistory.goBack();
         dispatch(changeForm({
           username: '',
@@ -46,7 +47,7 @@ export function logout() {
       if (success === true) {
         dispatch(sendingRequest(false));
         dispatch(setAuthState(false));
-        dispatch(setAdminRole(false))
+        dispatch(setAdminRole(auth.isAdmin()));
         browserHistory.goBack();
       } else {
         requestFailed(err);
