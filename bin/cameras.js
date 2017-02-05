@@ -9,18 +9,20 @@ class CamerasServ{
 
   DeleteCameraHandler(req, res){
     console.log('delete id: '+req.params.id);
-    res.json({success: true})
+    res.json({success: true});
   }
 
   CreateCameraHandler(req, res){
     console.log('Create JSON: '+req.body.json);
-    res.json({success: true})
+    console.log('file: '+req.body.file);
+    res.json({success: true});
   }
 
   UpdateCameraHandler(req, res){
     console.log('Edit JSON: '+req.body.json);
-    console.log('Id: '+req.params.id)
-    res.json({success: true})
+    console.log('Id: '+req.params.id);
+    console.log('file: '+req.body.file);
+    res.json({success: true});
   }
 
   cameraHandler(req, res){

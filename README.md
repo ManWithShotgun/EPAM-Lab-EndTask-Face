@@ -1,11 +1,19 @@
+
+jwt: https://jwt.io/
+jwt-decode (for browser): https://github.com/auth0/jwt-decode
+node-jwt: https://github.com/auth0/node-jsonwebtoken
+java-jwt: https://github.com/auth0/java-jwt
+jwt client verify?https://auth0.com/forum/t/stealing-jwt-from-authenticated-user/352/11
+
 react-paginate : https://github.com/AdeleD/react-paginate
 пример логина: https://github.com/mxstbr/login-flow
 
 
 
-goto: сделать bascket блок по клику, а не по hover (и так норм)
-goto: сделать нормально хранение account role (не сделал, не вижу всего механизма подтверждения ролей и слежки за этим)
-goto: интернационализация, сделать чисто клиентскую
+doto: сделать bascket блок по клику, а не по hover (и так норм)
+doto: сделать нормально хранение account role (не сделал, не вижу всего механизма подтверждения ролей и слежки за этим)
+doto: интернационализация, сделать чисто клиентскую
+doto: сделать кнопку очисти форм create, update (если url длинный неудобно удалять его); Только это не форма, а таблица и надо делать функцию которая будет чистить.
 fix: при create(?) and edit случается переход. Найти, устранить.
 fix: если выбрать 5 страницу и изменить фильтр то страница останется 5 но пустая; пагинатор не сломается, просто будет на 5-й странице. Надо явно перейти на страницу для отображения результата.
 fix: после нажатия edit textarea очищается.

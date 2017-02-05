@@ -19,9 +19,21 @@ class MonitorByIdEdit extends Component {
     let name = ReactDOM.findDOMNode(this.refs.name).value;
     let inch = ReactDOM.findDOMNode(this.refs.inch).value;
     let pricePer = ReactDOM.findDOMNode(this.refs.pricePer).value;
-    let img = ReactDOM.findDOMNode(this.refs.photo).value;
+    let img = ReactDOM.findDOMNode(this.refs.photoURL).value;
+    console.log('img '+img);
     let description = ReactDOM.findDOMNode(this.refs.description).value;
-    this.props.dispatch(updateProduct(`${URL_MONITOR}/${this.props.params.id}`, {id: this.props.product.id, name, inch, pricePer, img, description}));
+
+    if(!img){//если photoURL пуст то загрузка photoFile
+      img = ReactDOM.findDOMNode(this.refs.photoFile).files[0];
+      let reader=new FileReader();
+      reader.onloadend=function(){
+        this.props.dispatch(updateProduct(`${URL_MONITOR}/${this.props.params.id}`, {id: this.props.product.id, name, inch, pricePer, img:'none', description}, reader.result));
+      }.bind(this);
+      reader.readAsDataURL(ReactDOM.findDOMNode(this.refs.photoFile).files[0]);
+      return;
+    }
+    //else
+    this.props.dispatch(updateProduct(`${URL_MONITOR}/${this.props.params.id}`, {id: this.props.product.id, name, inch, pricePer, img, description}, ''));
   }
 
   _deleteProduct(e){
@@ -29,18 +41,22 @@ class MonitorByIdEdit extends Component {
     this.props.dispatch(deleteProduct(`${URL_MONITOR}/${this.props.params.id}`));
   }
 
+  changePreviewImg(){
+    let previewImg = ReactDOM.findDOMNode(this.refs.previewImg);
+    let img = ReactDOM.findDOMNode(this.refs.photoFile).files[0];
+    let reader=new FileReader();
+    reader.onloadend=function(){
+      previewImg.src=reader.result;
+    };
+    if (img) {
+      reader.readAsDataURL(img);
+    } else {
+      previewImg.src = '';
+    }
+  }
+
   render() {
-    ///Как грузить img на сервер? пока только URL
-    //<input ref="photo" type="text"/>
-    //<input ref="photo" type="file" name="photo" multiple accept="image/*,image/jpeg"/>
-    /*
-    <tr>
-      <td className="detail-name">img URL:</td>
-      <td className="detail-value"><input ref="photo" type="text" defaultValue={this.props.product.img}/></td>
-    </tr>
 
-
-    */
     console.log('this.props.currentlySending: '+this.props.currentlySending);
     try{
       var product=this.props.currentlySending ? (
@@ -48,7 +64,7 @@ class MonitorByIdEdit extends Component {
           ): (
             <div className="details-wrapper">
               <div className="img-div">
-                <img src={this.props.product.img} alt=""/>
+                <img ref="previewImg" src={this.props.product.img} alt=""/>
               </div>
               <table>
                 <tbody>
@@ -66,7 +82,11 @@ class MonitorByIdEdit extends Component {
                 </tr>
                 <tr>
                   <td className="detail-name">img URL:</td>
-                  <td className="detail-value"><input ref="photo" type="text" defaultValue={this.props.product.img}/></td>
+                  <td className="detail-value"><input ref="photoURL" type="text" defaultValue={this.props.product.img}/></td>
+                </tr>
+                <tr>
+                  <td className="detail-name">img FILE:</td>
+                  <td className="detail-value"><input ref="photoFile" type="file" name="photoFile" onChange={::this.changePreviewImg} accept="image/*,image/jpeg"/></td>
                 </tr>
                 </tbody>
               </table>

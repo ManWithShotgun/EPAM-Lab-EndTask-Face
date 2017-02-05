@@ -3,6 +3,7 @@ import {
   URL_REGISTRATION,
   URL_LOGOUT
  } from '../constants/urls'
+ var jwtDecode = require('jwt-decode');
 
 var auth = {
   login(username, password, callback) {
@@ -16,8 +17,10 @@ var auth = {
       return response.json();
      }).then((response)=> {
       if (response.authenticated) {
+        // var decoded = jwtDecode(response.token);
+        // console.log('DECODED: '+decoded);
         localStorage.token = response.token;
-        localStorage.role = response.role;
+        // localStorage.role = decoded.role;
         console.log('new token: '+response.token);
         callback(true, response.role);
       } else {
@@ -38,7 +41,7 @@ var auth = {
        if(response.logout){
          callback(true)
          delete localStorage.token;
-         delete localStorage.role;
+        //  delete localStorage.role;
        }else{
          callback(false, response.error);
        }
@@ -54,7 +57,16 @@ var auth = {
   },
 
   isAdmin() {
-    return localStorage.role ? (localStorage.role=='admin') : false;
+    console.log('isAdmin');
+    if(!localStorage.token){
+      return false;
+    }
+    // console.log('TOKEN: '+localStorage.token);
+    /*Недобы добавить валидацию токена по формату jwt, а то в jwt-decode ее нету (ошибка если неправильный формат токена)*/
+    var decoded = jwtDecode(localStorage.token);
+    console.log('role: '+decoded.role);
+    return decoded.role ? (decoded.role=='admin') : false;
+    // return localStorage.role ? (localStorage.role=='admin') : false;
   },
 
   register(user, callback) {

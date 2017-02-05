@@ -10,7 +10,9 @@ class customAuth{
     console.log(`login: ${username}|${password}`);
     const userExists = doesUserExist(username);
     if (userExists && password===users[username].password) {
-      let token=Math.random().toString(36).substring(7);
+      var jwt = require('jsonwebtoken');
+      var token = jwt.sign({ role: users[username].role }, '123');
+      // let token=Math.random().toString(36).substring(7);
       tokens.push(token);
       resSendWithAccess(res,{
           authenticated: true,

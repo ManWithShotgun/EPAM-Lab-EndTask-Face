@@ -24,7 +24,7 @@ export function readProduct(url){
   }
 }
 
-export function createProduct(url,item){
+export function createProduct(url, item, file){
   return (dispatch)=>{
     if(checkEmptyProduct(item)){
       requestFailed({type: 'field-missing'});
@@ -32,6 +32,7 @@ export function createProduct(url,item){
     }
     let data = new FormData();
     data.append('json', JSON.stringify(item));
+    data.append('file', file);
     dispatch(setCurrentlySending(true));
     fetch(url, {method: 'POST', body: data}).then((response)=> {
       return response.json();
@@ -52,7 +53,7 @@ export function createProduct(url,item){
   }
 }
 
-export function updateProduct(url,item){
+export function updateProduct(url, item, file){
   return (dispatch)=>{
     if(checkEmptyProduct(item)){
       requestFailed({type: 'field-missing'});
@@ -60,6 +61,7 @@ export function updateProduct(url,item){
     }
     let data = new FormData();
     data.append('json', JSON.stringify(item));
+    data.append('file', file);
     dispatch(setCurrentlySending(true));
     fetch(url, {method: 'PUT', body: data}).then((response)=> {
       return response.json();

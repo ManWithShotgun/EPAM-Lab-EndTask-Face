@@ -64,7 +64,7 @@ export class Registration extends Component{
                         <label htmlFor="email">Email*</label>
                       </td>
                       <td>
-                        <input ref="email" type="text" id="email" required placeholder="any@email.com"/>
+                        <input ref="email" type="email" id="email" className="email-input" required placeholder="any@email.com"/>
                       </td>
                     </tr>
                     <tr>

@@ -13,12 +13,14 @@ class MonirorsServ{
 
   CreateMonitorHandler(req, res){
     console.log('Create JSON: '+req.body.json);
+    console.log('file: '+req.body.file);
     res.json({success: true})
   }
 
   UpdateMonitorHandler(req, res){
     console.log('Edit JSON: '+req.body.json);
     console.log('Id: '+req.params.id)
+    console.log('file: '+req.body.file);
     res.json({success: true})
   }
 

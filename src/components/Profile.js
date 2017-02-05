@@ -13,28 +13,16 @@ export default class Profile extends Component{
         <table>
           <tbody>
           <tr>
-            <td className="detail-name">First Name:</td>
+            <td className="detail-name">Login:</td>
             <td className="detail-value">Name1</td>
-          </tr>
-          <tr>
-            <td className="detail-name">Last Name:</td>
-            <td className="detail-value">Name2</td>
-          </tr>
-          <tr>
-            <td className="detail-name">Address:</td>
-            <td className="detail-value">Lorem ipsum dolor sit.</td>
           </tr>
           <tr>
             <td className="detail-name">Email:</td>
             <td className="detail-value">mail@email.com</td>
           </tr>
           <tr>
-            <td className="detail-name">Password:</td>
-            <td className="detail-value">12345</td>
-          </tr>
-          <tr>
-            <td className="detail-name">Tel:</td>
-            <td className="detail-value">+372191234567</td>
+            <td className="detail-name">Role:</td>
+            <td className="detail-value">Lorem ipsum dolor sit.</td>
           </tr>
         </tbody>
         </table>

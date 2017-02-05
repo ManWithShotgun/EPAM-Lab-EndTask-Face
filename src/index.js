@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 
 import { Router, Route, browserHistory } from 'react-router';
-// import MainContainer from './containers/MainContainer'
+import auth from './utils/auth'
 import About from './components/About'
 import MainWrapper from './components/MainWrapper'
 import Login from './components/Login'
@@ -55,9 +55,9 @@ function checkAuth(nextState, replaceState) {
 }
 
 function chechIsAdmin(nextState, replaceState) {
-  const role=window.localStorage.getItem('role');
-  const isAdmin=role ? (role=='admin') : false;
-  if(!isAdmin){
+  // const role=window.localStorage.getItem('role');
+  // const isAdmin=role ? (role=='admin') : false;
+  if(!auth.isAdmin()){
     replaceState('/');
   }
 }

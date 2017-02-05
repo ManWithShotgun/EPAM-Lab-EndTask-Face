@@ -4,6 +4,7 @@ import LoadingButton from './LoadingButton';
 import { connect } from 'react-redux';
 import { login } from '../actions/AccountAuthAction';
 import ReactDOM from 'react-dom'
+// import  * as jwt from 'jsonwebtoken';
 import '../styles/login.css'
 import '../styles/formErr.css'
 export class Login extends Component{
@@ -22,6 +23,13 @@ export class Login extends Component{
   render() {
     // const dispatch = this.props.dispatch;
 		// const { formState, currentlySending } = this.props.accountAuth;
+    // var token = jwt.sign({ foo: 'bar' }, 'shhhhh');
+    // console.log('token:'+token);
+    // console.log('verify:'+jwt.verify(token, 'shhhhh').foo);
+
+    // var jwtDecode = require('jwt-decode');
+    // var decoded = jwtDecode(token);
+    // console.log(decoded);
     return(
       <div className="login-wrapper">
         <div className="login-div">

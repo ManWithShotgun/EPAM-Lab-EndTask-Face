@@ -41,7 +41,7 @@
 .registration-div label{
   float: right;
 }
-.registration-div input[type="text"], .registration-div input[type="password"]{
+.registration-div input[type="text"], .registration-div input[type="password"], .email-input{
   border: 1px solid #dbd6d6;
   border-radius: 3px;
   height: 23px;

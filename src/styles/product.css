@@ -79,10 +79,9 @@
   height: 100px;
   resize: none;
 }
-/*.details-wrapper input[type="text"]{
-  border: 1px solid #dbd6d6;
-  border-radius: 2px;
-}*/
+.details-wrapper input[type="file"]{
+  width: 181px;
+}
 .details-wrapper input[type="button"]{
   color: #4781a4;
   border: 1px solid #dbd6d6;
