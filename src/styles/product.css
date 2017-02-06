@@ -16,7 +16,7 @@
 .profile-wrapper h3{
   background: #f3f3f3 url(../img/fade.png) repeat-x top left;
   color: black;
-  text-shadow: 1px 1px 1px #fff;
+  /*text-shadow: 1px 1px 1px #fff;*/
   border-bottom: 1px solid #dbd6d6;
   font-size: 13px;
   font-weight: 700;

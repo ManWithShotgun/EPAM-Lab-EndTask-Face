@@ -31,11 +31,8 @@ import './styles/style-index.css'
 const store=configureStore();
 
 function checkAuth(nextState, replaceState) {
-  // let { loggedIn } = store.getState();
-  let loggedIn = false;
-
   if (nextState.location.pathname !== '/profile') {
-    if (loggedIn) {
+    if (auth.loggedIn()) {
       if (nextState.location.state && nextState.location.pathname) {
         replaceState(nextState.location.pathname);
       } else {
@@ -43,7 +40,7 @@ function checkAuth(nextState, replaceState) {
       }
     }
   } else {
-    if (!loggedIn) {
+    if (!auth.loggedIn()) {
       if (nextState.location.state && nextState.location.pathname) {
         replaceState(nextState.location.pathname);
       } else {
@@ -55,8 +52,6 @@ function checkAuth(nextState, replaceState) {
 }
 
 function chechIsAdmin(nextState, replaceState) {
-  // const role=window.localStorage.getItem('role');
-  // const isAdmin=role ? (role=='admin') : false;
   if(!auth.isAdmin()){
     replaceState('/');
   }

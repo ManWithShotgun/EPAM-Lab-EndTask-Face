@@ -21,15 +21,6 @@ export class Login extends Component{
   }
 
   render() {
-    // const dispatch = this.props.dispatch;
-		// const { formState, currentlySending } = this.props.accountAuth;
-    // var token = jwt.sign({ foo: 'bar' }, 'shhhhh');
-    // console.log('token:'+token);
-    // console.log('verify:'+jwt.verify(token, 'shhhhh').foo);
-
-    // var jwtDecode = require('jwt-decode');
-    // var decoded = jwtDecode(token);
-    // console.log(decoded);
     return(
       <div className="login-wrapper">
         <div className="login-div">

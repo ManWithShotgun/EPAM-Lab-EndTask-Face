@@ -7,7 +7,7 @@ class customAuth{
   login(req, res){
     let username=req.query.username;
     let password=req.query.password;
-    console.log(`login: ${username}|${password}`);
+    console.log(`login: ${username}|${password}|${users[username].name}|${users[username].email}`);
     const userExists = doesUserExist(username);
     if (userExists && password===users[username].password) {
       var jwt = require('jsonwebtoken');
