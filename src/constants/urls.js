@@ -8,3 +8,4 @@ export const URL_COUNTS=`${URL}/counts`
 export const URL_LOGIN=`${URL}/login`
 export const URL_REGISTRATION=`${URL}/register`
 export const URL_LOGOUT=`${URL}/logout`
+export const URL_PROFILE_EDIT=`${URL}/profile/edit`

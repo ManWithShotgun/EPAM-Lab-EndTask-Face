@@ -13,7 +13,6 @@ var auth = {
     }
     let params=`?username=${username}&password=${password}`;
     fetch(URL_LOGIN+params).then((response)=> {
-      // console.log('status: '+response.status);
       return response.json();
      }).then((response)=> {
       if (response.authenticated) {
@@ -22,7 +21,7 @@ var auth = {
         localStorage.token = response.token;
         // localStorage.role = decoded.role;
         console.log('new token: '+response.token);
-        callback(true);
+        callback(true, null, response.account);
       } else {
         callback(false, response.error);
       }

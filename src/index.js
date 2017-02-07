@@ -13,6 +13,7 @@ import MainWrapper from './components/MainWrapper'
 import Login from './components/Login'
 import Registration from './components/Registration'
 import Profile from './components/Profile'
+import ProfileEdit from './components/ProfileEdit'
 import NotFound from './components/NotFound'
 import Home from './components/Home'
 import MonitorsWrapper from './components/monitors/MonitorsWrapper'
@@ -31,15 +32,7 @@ import './styles/style-index.css'
 const store=configureStore();
 
 function checkAuth(nextState, replaceState) {
-  if (nextState.location.pathname !== '/profile') {
-    if (auth.loggedIn()) {
-      if (nextState.location.state && nextState.location.pathname) {
-        replaceState(nextState.location.pathname);
-      } else {
-        replaceState('/');
-      }
-    }
-  } else {
+  if (nextState.location.pathname == '/profile') {
     if (!auth.loggedIn()) {
       if (nextState.location.state && nextState.location.pathname) {
         replaceState(nextState.location.pathname);
@@ -66,6 +59,7 @@ render(
           <Route path="login" component={Login} />
           <Route path="registration" component={Registration} />
           <Route path="profile" component={Profile} />
+          <Route path="profile/edit" component={ProfileEdit} />
           <Route path="home" component={Home} />
           <Route path="about" component={About}/>
           <Route component={MainWrapper}>

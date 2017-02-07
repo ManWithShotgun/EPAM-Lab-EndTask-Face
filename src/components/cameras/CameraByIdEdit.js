@@ -56,6 +56,12 @@ class MonitorByIdEdit extends Component {
     }
   }
 
+  changePreviewImgURL(){
+    let previewImg = ReactDOM.findDOMNode(this.refs.previewImg);
+    let img = ReactDOM.findDOMNode(this.refs.photoURL).value;
+    previewImg.src=img;
+  }
+
   render() {
     console.log('this.props.currentlySending: '+this.props.currentlySending);
     try{
@@ -82,7 +88,7 @@ class MonitorByIdEdit extends Component {
               </tr>
               <tr>
                 <td className="detail-name">img URL:</td>
-                <td className="detail-value"><input ref="photoURL" type="text" defaultValue={this.props.product.img}/></td>
+                <td className="detail-value"><input ref="photoURL" type="text" onChange={::this.changePreviewImgURL} defaultValue={this.props.product.img}/></td>
               </tr>
               <tr>
                 <td className="detail-name">img FILE:</td>

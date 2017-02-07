@@ -1,5 +1,5 @@
 var users={
-  '1': {password:'1', role: 'admin', name: 'Name1',email: 'Email1'}
+  '1': {password:'$2a$10$MQAAAAAAAAAAAAAAAAAAA.8iX7Z1kXoAWhOQtH5LCCTxha5DQ1442', role: 'admin', name: 'Name1',email: 'Email1', img:'/dist/public/default-user.jpg'}
 };
 var tokens=[];
 
@@ -12,12 +12,14 @@ class customAuth{
     if (userExists && password===users[username].password) {
       var jwt = require('jsonwebtoken');
       var token = jwt.sign({ role: users[username].role }, '123');
-      // let token=Math.random().toString(36).substring(7);
+      var account=users[username];
+      account.login=username;
+      delete account.password;
       tokens.push(token);
       resSendWithAccess(res,{
           authenticated: true,
           token: token,
-          user: users[username]
+          account: account
         });
     }else{
       let error;
@@ -28,6 +30,37 @@ class customAuth{
       }
       resSendWithAccess(res,{
           authenticated: false,
+          error: error
+        });
+    }
+  }
+
+  profileUpdate(req, res){
+    let username=req.body.username;
+    let password=req.body.password;
+    let account=JSON.parse(req.body.account);
+    console.log('ProfileEdit: '+username, password);
+    console.log('account: '+account);
+    const userExists = doesUserExist(username);
+    console.log('if: '+userExists+' || '+(users[username].password==password));
+    if (userExists && password===users[username].password) {
+      var jwt = require('jsonwebtoken');
+      var token = jwt.sign({ role: account.role }, '123');
+      delete account.password;
+      resSendWithAccess(res,{
+          success: true,
+          token: token,
+          account: account
+        });
+    }else{
+      let error;
+      if(userExists){
+        error={type: 'password-wrong'};
+      }else{
+        error={type: 'user-doesnt-exist'}
+      }
+      resSendWithAccess(res,{
+          success: false,
           error: error
         });
     }
@@ -45,9 +78,10 @@ class customAuth{
     let name=req.query.name;
     let email=req.query.email;
     let role=req.query.role;
+    let img='/dist/public/default-user.jpg';
     console.log(`reg: ${username}|${password}|${role}|${name}|${email}`);
     if (!doesUserExist(username)) {
-      users[username]={password, role, name, email};
+      users[username]={password, role, name, email, img};
       resSendWithAccess(res, {
         registered: true
       });

@@ -63,6 +63,9 @@ app.get('/ws/logout', function(req, res) {
 app.get('/ws/register', function(req, res) {
   setTimeout(auth.register, 100, req, res)
 });
+app.post('/ws/profile/edit', function(req, res) {
+  setTimeout(auth.profileUpdate, 100, req, res)
+});
 
 
 
