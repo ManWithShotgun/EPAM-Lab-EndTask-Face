@@ -8,12 +8,11 @@ jwt client verify?https://auth0.com/forum/t/stealing-jwt-from-authenticated-user
 
 react-paginate : https://github.com/AdeleD/react-paginate
 пример логина: https://github.com/mxstbr/login-flow
+Twitter REST API: https://dev.twitter.com/rest/public
 
 
 
 todo: сделать bascket блок по клику, а не по hover (и так норм)
-todo: сделать нормально хранение account role (не сделал, не вижу всего механизма подтверждения ролей и слежки за этим)
-todo: интернационализация, сделать чисто клиентскую
 todo: сделать кнопку очисти форм create, update (если url длинный неудобно удалять его); Только это не форма, а таблица и надо делать функцию которая будет чистить.
 todo: изменить username на logi. Так же и на бэкенде.
 fix: при create(?) and edit случается переход. Найти, устранить.

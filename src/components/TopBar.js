@@ -60,9 +60,9 @@ class TopBar extends Component {
             </form>
           </div>
           <div className="top-social">
-            <a className="facebook" href="#"></a>
-            <a className="twitter" href="#"></a>
-            <a className="linkedin" href="#"></a>
+            <a className="facebook" href="https://www.facebook.com"></a>
+            <a className="twitter" href="https://twitter.com/"></a>
+            <a className="linkedin" href="https://ru.linkedin.com/"></a>
             <a className="rss" href="#"></a>
           </div>
         </div>
